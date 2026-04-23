@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Analista Jurídico · TJSC 2026</title>
+  <style>
+    :root {
+      --navy:    #1a2744;
+      --blue:    #2a4a8a;
+      --mid:     #3a6abf;
+      --accent:  #e8a020;
+      --light:   #f0f4fb;
+      --white:   #ffffff;
+      --text:    #1e2b40;
+      --muted:   #6b7a99;
+      --border:  #d0dbed;
+      --green:   #2e7d32;
+      --red:     #c62828;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .header-icon {
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -.5px; }
+    header p  { font-size: .95rem; opacity: .8; margin-top: .25rem; }
+    .badge {
+      margin-left: auto;
+      background: var(--accent);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .4rem .9rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── SUMMARY CARDS ── */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem 2.5rem;
+    }
+    .card-stat {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid var(--mid);
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+    .card-stat .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .card-stat .lbl {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .25rem;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .card-stat.accent { border-left-color: var(--accent); }
+    .card-stat.accent .num { color: #b06010; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      padding: .5rem 2.5rem 0;
+    }
+    .section-label h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .section-label h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      display: block;
+    }
+
+    /* ── MÓDULO WRAPPER ── */
+    .modulo {
+      padding: 1rem 2.5rem 1.5rem;
+    }
+
+    /* ── MÓDULO HEADER ── */
+    .modulo-header {
+      border-radius: 10px 10px 0 0;
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modulo-header.gerais  { background: var(--navy); }
+    .modulo-header.especif { background: #1a3a6a; }
+    .modulo-header h3 {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .modulo-header .total-badge {
+      background: rgba(255,255,255,.2);
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .25rem .75rem;
+      border-radius: 12px;
+    }
+
+    /* ── DISCIPLINE TABLE ── */
+    .disc-table {
+      background: var(--white);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .disc-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+      cursor: default;
+    }
+    .disc-row:last-child { border-bottom: none; }
+    .disc-row:hover { background: #f5f8ff; }
+
+    .disc-main {
+      padding: .9rem 1.4rem;
+    }
+    .disc-name {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--text);
+    }
+    .disc-topics {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .3rem;
+      line-height: 1.4;
+    }
+
+    /* pill */
+    .pill {
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: .35rem .9rem;
+      margin-right: 1.4rem;
+      text-align: center;
+      min-width: 62px;
+      flex-shrink: 0;
+    }
+    .pill .q-num {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .pill .q-lbl {
+      font-size: .65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      padding: 0 2.5rem 1.5rem;
+    }
+    .prog-title {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: .75rem;
+    }
+    .prog-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .5rem;
+    }
+    .prog-name { font-size: .82rem; width: 260px; flex-shrink: 0; color: var(--text); }
+    .prog-bar-bg {
+      flex: 1;
+      background: var(--border);
+      border-radius: 6px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .prog-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: var(--mid);
+    }
+    .prog-bar-fill.gerais { background: #5b7fc4; }
+    .prog-bar-fill.especif { background: var(--blue); }
+    .prog-pct { font-size: .78rem; font-weight: 700; color: var(--blue); width: 34px; text-align: right; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: .5rem;
+    }
+
+    /* ── QUESTÕES POR SUBTÓPICO ── */
+    .subtopic-block { margin: .55rem 0; }
+    .subtopic-hdr {
+      font-size: .76rem; font-weight: 700;
+      color: var(--white); background: var(--mid);
+      padding: .28rem .7rem; border-radius: 5px;
+      margin-bottom: .2rem; display: flex;
+      justify-content: space-between;
+    }
+    .subtopic-hdr span { opacity: .85; font-weight: 400; font-size: .7rem; }
+    .q-list { list-style: none; padding: 0; margin: 0 0 .3rem; }
+    .q-list li {
+      display: flex; align-items: flex-start; gap: .4rem;
+      padding: .2rem .3rem; font-size: .75rem;
+      border-bottom: 1px dotted var(--border); line-height: 1.4;
+    }
+    .q-list li:last-child { border-bottom: none; }
+    .q-n { font-weight: 800; color: var(--blue); min-width: 24px; flex-shrink: 0; font-size: .78rem; }
+    .q-desc { flex: 1; color: var(--text); }
+    .q-gab {
+      font-weight: 700; font-size: .68rem;
+      background: #dce8ff; color: var(--navy);
+      padding: .1rem .32rem; border-radius: 3px; flex-shrink: 0;
+    }
+    .q-gab.anulada { background: #fff3e0; color: #bf360c; }
+    .subsec-btn {
+      display: inline-block; margin-top: .5rem;
+      font-size: .72rem; color: var(--mid);
+      cursor: pointer; border: 1px solid var(--border);
+      background: var(--light); padding: .18rem .6rem;
+      border-radius: 5px; font-family: inherit;
+    }
+    .subsec-btn:hover { background: #e0eaff; }
+    .questions-section { margin-top: .4rem; }
+
+    /* ── TOOLTIP (expandable topics) ── */
+    .expand-btn {
+      display: inline-block;
+      margin-top: .35rem;
+      font-size: .72rem;
+      color: var(--mid);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      font-family: inherit;
+    }
+    .expand-btn:hover { text-decoration: underline; }
+    .topics-detail {
+      font-size: .77rem;
+      color: var(--muted);
+      margin-top: .3rem;
+      line-height: 1.55;
+    }
+    .topics-detail ul {
+      margin-left: 1rem;
+    }
+    .topics-detail li { margin-bottom: .15rem; }
+
+    /* ══════════════════════════════════════════
+       SEÇÃO 2 — ANOTAÇÕES DE ESTUDO
+    ══════════════════════════════════════════ */
+    .modulo-header.anot { background: var(--mid); }
+
+    /* form wrapper inside disc-table */
+    .anot-form-wrap { padding: 1.4rem 1.8rem; }
+
+    .anot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .anot-group { display: flex; flex-direction: column; gap: .3rem; }
+    .anot-group.full { grid-column: 1 / -1; }
+
+    .anot-label {
+      font-size: .76rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .anot-select-wrap { position: relative; }
+    .anot-select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: .8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      font-size: .8rem;
+    }
+
+    .anot-select, .anot-textarea {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: .88rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .55rem .8rem;
+      width: 100%;
+      transition: border-color .15s, box-shadow .15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .anot-select:focus, .anot-textarea:focus {
+      outline: none;
+      border-color: var(--mid);
+      box-shadow: 0 0 0 3px rgba(58,106,191,.1);
+    }
+    .anot-select:disabled { background: var(--light); color: var(--muted); cursor: not-allowed; }
+    .anot-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .anot-hint { font-size: .72rem; color: var(--muted); margin-top: .18rem; }
+
+    /* ref auto badge */
+    .anot-ref-box {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .5rem .85rem;
+      border: 1.5px dashed var(--border);
+      border-radius: 8px;
+      background: var(--light);
+    }
+    .anot-ref-lbl { font-size: .74rem; color: var(--muted); flex-shrink: 0; }
+    .anot-ref-code {
+      font-size: .95rem;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      color: var(--navy);
+      letter-spacing: .6px;
+    }
+    .anot-ref-code.empty {
+      font-size: .78rem;
+      font-weight: 400;
+      color: #c0c8d8;
+      font-family: inherit;
+      letter-spacing: 0;
+    }
+
+    /* submit */
+    .anot-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      width: 100%;
+      margin-top: .85rem;
+      padding: .75rem 1.5rem;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--mid) 100%);
+      color: var(--white);
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+    }
+    .anot-submit:hover   { opacity: .91; }
+    .anot-submit:active  { transform: scale(.99); }
+    .anot-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .anot-spinner {
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: anot-spin .6s linear infinite;
+      display: none;
+    }
+    @keyframes anot-spin { to { transform: rotate(360deg); } }
+
+    /* toast */
+    #anot-toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      padding: .7rem 1.4rem;
+      border-radius: 9px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      transition: transform .28s ease;
+      z-index: 999;
+      pointer-events: none;
+    }
+    #anot-toast.show { transform: translateX(-50%) translateY(0); }
+    #anot-toast.ok  { background: var(--green); }
+    #anot-toast.err { background: var(--red); }
+
+    /* saved notes section */
+    .anot-filters {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .85rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      background: var(--white);
+    }
+    .anot-flt-wrap { position: relative; flex: 1; min-width: 150px; }
+    .anot-flt-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: .65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      font-size: .72rem;
+    }
+    .anot-flt-sel {
+      font-family: inherit;
+      font-size: .8rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: .36rem .65rem;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .anot-flt-sel:focus { outline: none; border-color: var(--mid); }
+    .anot-btn-refresh {
+      font-family: inherit;
+      font-size: .76rem;
+      color: var(--mid);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: .36rem .8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .12s;
+    }
+    .anot-btn-refresh:hover { background: var(--light); }
+
+    /* note item — uses disc-row pattern */
+    .anot-note-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .5rem 1rem;
+      padding: .85rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      transition: background .12s;
+    }
+    .anot-note-item:last-child { border-bottom: none; }
+    .anot-note-item:hover { background: #f7f9ff; }
+
+    .anot-note-meta {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      flex-wrap: wrap;
+      margin-bottom: .35rem;
+    }
+    .anot-tag {
+      font-size: .66rem;
+      font-weight: 700;
+      padding: .12rem .42rem;
+      border-radius: 4px;
+      letter-spacing: .25px;
+    }
+    .anot-tag.gerais  { background: #e3f2fd; color: #1565c0; }
+    .anot-tag.especif { background: #fce4ec; color: #880e4f; }
+    .anot-tag.mat     { background: var(--navy); color: var(--white); }
+    .anot-tag.ass     { background: #dce8ff;     color: var(--blue); font-weight: 400; }
+    .anot-tag.ref     {
+      background: var(--light); color: var(--muted);
+      font-family: 'Courier New', monospace; font-weight: 700;
+    }
+
+    .anot-note-body {
+      font-size: .84rem;
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    .anot-note-id {
+      font-size: .64rem;
+      color: #ccc;
+      align-self: start;
+      padding-top: .15rem;
+      white-space: nowrap;
+    }
+    .anot-empty {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .anot-load-more {
+      text-align: center;
+      padding: .85rem;
+      border-top: 1px solid var(--border);
+    }
+    .anot-btn-load {
+      font-family: inherit;
+      font-size: .79rem;
+      color: var(--mid);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: .38rem 1.2rem;
+      cursor: pointer;
+      transition: background .12s;
+    }
+    .anot-btn-load:hover { background: var(--light); }
+
+    @media (max-width: 600px) {
+      header { padding: 1.2rem 1rem; flex-wrap: wrap; }
+      .badge { margin-left: 0; }
+      .summary, .modulo, .section-label, .progress-wrap { padding-left: 1rem; padding-right: 1rem; }
+      .prog-name { width: 150px; }
+      .anot-grid { grid-template-columns: 1fr; }
+      .anot-group.full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+  <div class="header-icon">⚖️</div>
+  <div>
+    <h1>Analista Judiciário — Área Jurídica</h1>
+    <p>Tribunal de Justiça de Santa Catarina · Concurso TJSC 2026 · Banca FGV</p>
+  </div>
+  <div class="badge">80 Questões</div>
+</header>
+
+<!-- ═══════════════════ SUMMARY CARDS ═══════════════════ -->
+<div class="summary">
+  <div class="card-stat">
+    <div class="num">80</div>
+    <div class="lbl">Total de Questões</div>
+  </div>
+  <div class="card-stat">
+    <div class="num">2</div>
+    <div class="lbl">Módulos</div>
+  </div>
+  <div class="card-stat">
+    <div class="num">12</div>
+    <div class="lbl">Disciplinas</div>
+  </div>
+  <div class="card-stat">
+    <div class="num">30</div>
+    <div class="lbl">Questões Gerais</div>
+  </div>
+  <div class="card-stat accent">
+    <div class="num">50</div>
+    <div class="lbl">Questões Específicas</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MÓDULO GERAIS ═══════════════════ -->
+<div class="section-label">
+  <h2>Módulo de Conhecimentos Gerais</h2>
+</div>
+
+<div class="modulo">
+  <div class="modulo-header gerais">
+    <h3>📚 Conhecimentos Gerais — Todos os cargos de nível superior</h3>
+    <span class="total-badge">30 questões</span>
+  </div>
+  <div class="disc-table">
+
+    <!-- Língua Portuguesa -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Língua Portuguesa</div>
+        <div class="disc-topics">Compreensão e interpretação de textos · Ortografia · Coesão textual · Morfossintaxe · Pontuação · Concordância · Crase · Pronomes · Reescritura</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Compreensão e interpretação de textos de gêneros variados</li>
+              <li>Reconhecimento de tipos e gêneros textuais</li>
+              <li>Ortografia oficial: emprego das letras e acentuação gráfica</li>
+              <li>Mecanismos de coesão textual: referenciação, conectores, tempos e modos verbais</li>
+              <li>Estrutura morfossintática: coordenação, subordinação, pontuação</li>
+              <li>Concordância verbal e nominal; emprego da crase</li>
+              <li>Colocação dos pronomes átonos</li>
+              <li>Reescritura de frases e retextualização</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">10</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Legislação Institucional -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Legislação Institucional do PJSC</div>
+        <div class="disc-topics">Estrutura do Poder Judiciário SC · Organização judiciária · TJSC · Corregedoria · Regime jurídico dos servidores · Lei 5.624/1979 · Lei 6.745/1985 · LC 639/2015</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Estrutura, competências e funcionamento do Poder Judiciário estadual</li>
+              <li>Organização judiciária: divisão, composição, órgãos jurisdicionais e administrativos</li>
+              <li>Regimento Interno do TJSC: organização, competências e funcionamento</li>
+              <li>Código de Normas da Corregedoria-Geral da Justiça</li>
+              <li>Regime jurídico e disciplinar dos servidores</li>
+              <li>Lei 5.624/1979 | Regimento Interno TJSC | Lei 6.745/1985 | LC 639/2015</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">6</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Ética -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Ética e Gestão no Serviço Público</div>
+        <div class="disc-topics">Princípios constitucionais · Moralidade administrativa · Improbidade · Responsabilização · Gestão de pessoas · Código de Ética PJSC · Lei 8.429/1992 · Lei 12.846/2013</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Princípios e ética na Administração Pública; moralidade e probidade</li>
+              <li>Conflito de interesses; deveres e vedações do servidor</li>
+              <li>Responsabilização administrativa, civil e penal; processo disciplinar</li>
+              <li>Improbidade administrativa (Lei 8.429/1992)</li>
+              <li>Responsabilização de pessoas jurídicas; Lei Anticorrupção (Lei 12.846/2013)</li>
+              <li>Gestão de pessoas: motivação, liderança, cultura organizacional</li>
+              <li>Integridade institucional: transparência, prevenção de irregularidades</li>
+              <li>Código de Ética e Conduta do PJSC (Resolução TJ 22/2021)</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">4</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Informática -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Noções de Informática e Proteção de Dados</div>
+        <div class="disc-topics">Hardware e software · Sistemas operacionais · Redes e internet · Segurança da informação · LGPD (Lei 13.709/2018) · Proteção de dados no Poder Judiciário</div>
+        <button class="expand-btn">▸ Ver questões por tópico (82 questões FGV)</button>
+        <div class="topics-detail">
+
+          <!-- 1.1 Hardware -->
+          <div class="subtopic-block">
+            <div class="subtopic-hdr">1.1 Conceitos básicos de hardware e software <span>5 questões</span></div>
+            <ul class="q-list">
+              <li><span class="q-n">Q1</span><span class="q-desc">CPU: componente que representa o microprocessador e processa dados (FGV TJ AM 2013)</span><span class="q-gab">Gab: C</span></li>
+              <li><span class="q-n">Q2</span><span class="q-desc">Componentes estruturais da CPU: UC, ULA, Registradores e Interconexão (FGV TJ SE 2004)</span><span class="q-gab">Gab: C</span></li>
+              <li><span class="q-n">Q3</span><span class="q-desc">Discos rígidos de 500 GB e 1 TB referenciados pela sigla SATA (FGV TJ AM 2013)</span><span class="q-gab">Gab: B</span></li>
+              <li><span class="q-n">Q4</span><span class="q-desc">Impressora Epson Wireless 4532: "Wireless" indica comunicação sem fios (FGV TJ AM 2013)</span><span class="q-gab">Gab: C</span></li>
+              <li><span class="q-n">Q5</span><span class="q-desc">SETUP é um programa para configurar a BIOS (FGV TJ SE 2004)</span><span class="q-gab">Gab: B</span></li>
+            </ul>
+          </div>
+
+          <!-- 1.2 Sistemas Operacionais -->
+          <div class="subtopic-block">
+            <div class="subtopic-hdr">1.2 Sistemas operacionais e aplicativos <span>52 questões</span></div>
+
+            <button class="subsec-btn" data-target="so-win">▸ Sistemas Operacionais Windows (Q6–Q19)</button>
+            <div class="questions-section" id="so-win" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q6</span><span class="q-desc">Windows NÃO é responsável por: operações de login/logout de aplicativos de terceiros (FGV MPE GO 2022)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q7</span><span class="q-desc">Windows 98 – Painel de Controle: configurar cores, papel de parede e protetor = "Vídeo" (FGV MPE AM 2002)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q8</span><span class="q-desc">Windows 98 – arquivo irpf2002.exe: execução com duplo clique, pastas e criação de atalho — todas corretas (FGV MPE AM 2002)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q9</span><span class="q-desc">Windows 7 – .docx aberto no Bloco de Notas: menu pop-up → "Abrir com" (FGV MPE RJ 2016)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q10</span><span class="q-desc">Windows 7 – apresentação com anotações: Conectar a um projetor → opção Estender (FGV TJ BA 2015)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q11</span><span class="q-desc">Windows 7 – mover arquivos entre pastas: Ctrl+X (recortar) e Ctrl+V (colar) (FGV TJ AM 2013)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q12</span><span class="q-desc">Windows Explorer – componentes 1 e 4: Painel de navegação e Barra de endereços (FGV TJ AM 2013)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q13</span><span class="q-desc">Windows Explorer – Ctrl+A: seleciona todos os arquivos da pasta (FGV TJ AM 2013)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q14</span><span class="q-desc">Windows Explorer – é possível copiar arquivo para outra pasta mesmo estando aberto (FGV TRE PA 2011)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q15</span><span class="q-desc">Windows – pasta compartilhada exibe ícone de mão (somente I correta) (FGV MPE AM 2002)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q16</span><span class="q-desc">Windows 10 – comando INCORRETO no PowerShell para verificar versão: "Sysinfo" (FGV TJ RS 2025)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q17</span><span class="q-desc">Windows 10 – Lixeira: somente I correta (armazena e recupera arquivos removidos) (FGV MPE GO 2022)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q18</span><span class="q-desc">Windows 10 – Ferramentas de Pesquisa considera: tamanho, data e tipo do arquivo (FGV MPE RJ 2019)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q19</span><span class="q-desc">Windows 11 – atalho para Gerenciador de Tarefas: Ctrl+Shift+ESC (FGV MPE RJ 2025)</span><span class="q-gab">Gab: A</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="so-word">▸ MS Word (Q20–Q36)</button>
+            <div class="questions-section" id="so-word" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q20</span><span class="q-desc">Word 2000 – "Versões" no menu Arquivo: salva versões do documento em seu estado atual (FGV TJ SE 2004)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q21</span><span class="q-desc">Word 2000 – texto distribuído em páginas por ENTER: alinhamento vertical justificado (FGV TJ SE 2004)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q22</span><span class="q-desc">Word 97 – ícone destacado: alinhar parágrafo à direita e à esquerda simultaneamente (justificar) (FGV MPE AM 2002)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q23</span><span class="q-desc">Word 97 BR – somente I correta: Ctrl+B salva o arquivo (FGV MPE AM 2002)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q24</span><span class="q-desc">Word 2010 – capítulo começando em página ímpar: quebra de seção (FGV MPE RJ 2019)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q25</span><span class="q-desc">Word 2010 – nome digitado em maiúsculas com símbolos gregos: fonte Symbol (FGV MPE RJ 2019)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q26</span><span class="q-desc">Word 2010 – Controlar Alterações + Desfazer: exibe "maior time herói" (riscado+sublinhado) (FGV MPE RJ 2019)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q27</span><span class="q-desc">Word 2010 – Substituir com curinga "João C?* Almeida": substitui nomes com 2+ letras após C (FGV MPE RJ 2016)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q28</span><span class="q-desc">Word 2010 – "Instantâneo" bloqueado: fatores II (senha de gravação), III (somente leitura) e IV (Word 97-2003) (FGV TJ BA 2015)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q29</span><span class="q-desc">Word 2010 – Colar Especial "Texto não formatado": trecho assume formatação do ponto de colagem (FGV TJ BA 2015)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q30</span><span class="q-desc">Word 2010 – atalho para abrir janela de impressão: Ctrl+P (FGV TJ AM 2013)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q31</span><span class="q-desc">Word 2010 – margens Sup 2,5 cm / Inf 2,5 cm / Esq 3 cm / Dir 3 cm: padrão Normal (FGV TJ AM 2013)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q32</span><span class="q-desc">Word 2010 – Shift+F3: altera texto de minúsculo para maiúsculo e vice-versa (FGV TJ AM 2013)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q33</span><span class="q-desc">Word 2010 – ícones IC_1 (cor de fonte A▼) e IC_2 (aumentar recuo): opção D (FGV TJ AM 2013)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q34</span><span class="q-desc">Word 2010 – numeração não sequencial de páginas: inserir quebra de seção (FGV TRE PA 2011)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q35</span><span class="q-desc">Word 2019 – proteção de documento: somente "Criptografar com senha" (Arquivo > Informações > Proteger) (FGV MPE RJ 2025)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q36</span><span class="q-desc">Word 2019 – Controle de Alterações: todas as afirmativas são falsas (FGV MPE GO 2022)</span><span class="q-gab">Gab: E</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="so-excel">▸ MS Excel (Q37–Q53)</button>
+            <div class="questions-section" id="so-excel" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q37</span><span class="q-desc">Excel 2000 – proteger planilha deixando área liberada: destravar células via Formatar > Células > Proteção (FGV TJ SE 2004)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q38</span><span class="q-desc">Excel 2000 – fórmulas SE aninhadas com GM e Azul: valor de F2 = 16000 (FGV TJ SE 2004)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q39</span><span class="q-desc">Excel 97 – cópia de C3 (=$A$1+$A2+B3) para D4 resulta em: =$A$1+$A3+C4 (FGV MPE AM 2002)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q40</span><span class="q-desc">Excel 97 – formatação de células: somente I e II corretas (percentual e divisão da soma) (FGV MPE AM 2002)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q41</span><span class="q-desc">Excel 2010 – erro na guia Dados em planilha vazia: somente I (Classificar), II (Filtro) e III (Remover Duplicadas) (FGV MPE RJ 2019)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q42</span><span class="q-desc">Excel 2010 – referência circular em A3 e B3: =SOMA(A1:C3) e =SOMA(A1:C2) (FGV MPE RJ 2019)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q43</span><span class="q-desc">Excel 2010 – arquivo .xlsm danoso: ameaça advém da existência de macros anexadas (FGV MPE RJ 2019)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q44</span><span class="q-desc">Excel 2010 – fórmula que gera sequência 0,1,1,2,4,8,16,32: =SOMA(A$1:A2) (FGV MPE RJ 2016)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q45</span><span class="q-desc">Excel 2010 – Formatação Condicional NÃO pode: bloquear digitação de valores inválidos (FGV MPE RJ 2016)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q46</span><span class="q-desc">Excel 2010 – classificação coluna B do maior ao menor: valores coluna A ficam 7,6,5,4,1 (FGV MPE RJ 2016)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q47</span><span class="q-desc">Excel 2010 – abrir PDFs com clique no nº da nota fiscal: usar Hiperlink com referência local (FGV MPE RJ 2016)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q48</span><span class="q-desc">Excel 2010 – CONT.VALORES, CONT.NÚM, CONT.SE digitadas em B1:B3: ordem F1, F2, F3 (FGV MPE RJ 2016)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q49</span><span class="q-desc">Excel 2010 – Filtro na guia Dados: exibe apenas linhas com valores escolhidos na coluna X (FGV TJ BA 2015)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q50</span><span class="q-desc">Excel 2019 – extensões para pasta binária e links simbólicos: .xlsb e .slk (FGV MPE RJ 2025)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q51</span><span class="q-desc">Excel 2019 – XLOOKUP: afirmativas sobre sintaxe e argumentos obrigatórios (FGV TJ RS 2025)</span><span class="q-gab anulada">Anulada</span></li>
+                <li><span class="q-n">Q52</span><span class="q-desc">Excel 2019 – habilitar macros VBA na Central de Confiabilidade: somente passo I está correto (FGV TJ RS 2025)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q53</span><span class="q-desc">Excel 2019 – fórmulas com erro em D1=12,D2=23,E1=6,E2=2: três fórmulas geram erro (FGV MPE GO 2022)</span><span class="q-gab">Gab: D</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="so-outros">▸ PowerPoint, LibreOffice e Google Sheets (Q54–Q58, Q77)</button>
+            <div class="questions-section" id="so-outros" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q54</span><span class="q-desc">PowerPoint 2000 – modos de exibição: Normal, Estrutura de Tópicos, Slides, Classificação de Slides (FGV TJ SE 2004)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q55</span><span class="q-desc">PowerPoint 2010 – somente I (salvar como slides) e III (imprimir múltiplos por página) corretas (FGV TRE PA 2011)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q56</span><span class="q-desc">LibreOffice Writer – trechos em inglês: selecionar e alterar idioma da seleção para "inglês" (FGV TJ BA 2015)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q57</span><span class="q-desc">LibreOffice Writer – imprimir nomes dos alunos no cabeçalho: usar recurso Mala Direta (FGV TJ BA 2015)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q58</span><span class="q-desc">LibreOffice Calc vs Excel – após remover linha 3: ambos ajustam para =SOMA(A1:A3) (FGV TJ BA 2015)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q77</span><span class="q-desc">Google Sheets – criar macro: passos II (tipo de referência) e III (definir tarefas e "Criar") corretos (FGV PGM RJ 2025)</span><span class="q-gab">Gab: C</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 1.3 Redes -->
+          <div class="subtopic-block">
+            <div class="subtopic-hdr">1.3 Redes de computadores e internet <span>21 questões</span></div>
+
+            <button class="subsec-btn" data-target="redes-prot">▸ Redes e Protocolos (Q59–Q62)</button>
+            <div class="questions-section" id="redes-prot" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q59</span><span class="q-desc">Wi-Fi 7 – afirmativas sobre MLO (F), banda 640 MHz em 7 GHz (F) e 4096-QAM (V): F, F, V (FGV TJ RS 2025)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q60</span><span class="q-desc">"Banda" na Internet: associado à velocidade de transmissão de dados (FGV MPE RJ 2016)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q61</span><span class="q-desc">Transferência de arquivos com segurança: protocolo FTP (FGV MPE RJ 2019)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q62</span><span class="q-desc">POP3: protocolo que copia mensagens de servidor de e-mail para máquina cliente (FGV TJ SE 2004)</span><span class="q-gab">Gab: E</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="redes-inet">▸ Conceitos de Internet (Q63–Q64)</button>
+            <div class="questions-section" id="redes-inet" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q63</span><span class="q-desc">Download vs upload: somente I correta — download geralmente maior que upload (FGV MPE RJ 2025)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q64</span><span class="q-desc">Cursor de seta sobre mapa no TRE-PA: imagem sem hiperlink (não remete a nenhum endereço) (FGV TRE PA 2011)</span><span class="q-gab">Gab: B</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="redes-nav">▸ Navegadores e Correio Eletrônico (Q65–Q72)</button>
+            <div class="questions-section" id="redes-nav" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q65</span><span class="q-desc">IE 6.0 – apagar histórico: Ferramentas > Opções de Internet > guia Geral > Limpar Histórico (FGV TJ SE 2004)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q66</span><span class="q-desc">IE 6.0 – é possível fazer download de arquivos de um servidor (FGV TJ SE 2004)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q67</span><span class="q-desc">IE 5 – somente II (página inicial definível) e III (botão Voltar) corretas (FGV MPE AM 2002)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q68</span><span class="q-desc">Chrome – gerenciar senhas e login automático: nas configurações do navegador (FGV MPE RJ 2019)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q69</span><span class="q-desc">Chrome – somente III correta: opção de preenchimento automático de formulários (FGV TJ BA 2015)</span><span class="q-gab">Gab: D</span></li>
+                <li><span class="q-n">Q70</span><span class="q-desc">Netiqueta (e-mail): nenhuma afirmativa está correta (FGV TRE PA 2011)</span><span class="q-gab">Gab: C</span></li>
+                <li><span class="q-n">Q71</span><span class="q-desc">Endereços IP: somente II correta — IP com 4 números entre 0 e 255 (FGV MPE AM 2002)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q72</span><span class="q-desc">Outlook Express – campo "para": deve ser preenchido com o e-mail do destinatário (FGV MPE AM 2002)</span><span class="q-gab">Gab: D</span></li>
+              </ul>
+            </div>
+
+            <button class="subsec-btn" data-target="redes-busca">▸ Busca, Cloud e Ferramentas Online (Q73–Q76, Q78–Q79)</button>
+            <div class="questions-section" id="redes-busca" style="display:none">
+              <ul class="q-list">
+                <li><span class="q-n">Q73</span><span class="q-desc">Google – "embrapa -estatuto filetype:PDF": PDFs sobre embrapa que NÃO contenham "estatuto" (FGV MPE GO 2022)</span><span class="q-gab">Gab: B</span></li>
+                <li><span class="q-n">Q74</span><span class="q-desc">Google – busca em site específico excluindo palavra: site:.blograro.com.br brasil –governo (FGV MPE RJ 2019)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q75</span><span class="q-desc">Google Imagens – filtros disponíveis para os 7 critérios da busca: todos podem ser especificados (FGV MPE RJ 2016)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q76</span><span class="q-desc">Armazenamento em nuvem: I, II e III corretas (segurança, latência e continuidade) (FGV PGM RJ 2025)</span><span class="q-gab">Gab: A</span></li>
+                <li><span class="q-n">Q78</span><span class="q-desc">OneDrive – Arquivos sob Demanda, integração Outlook e Restauração 30 dias: I, II e III corretas (FGV TJ RS 2025)</span><span class="q-gab">Gab: E</span></li>
+                <li><span class="q-n">Q79</span><span class="q-desc">Google Workspace – ferramenta para reunião virtual: Google Meet (FGV PGM RJ 2025)</span><span class="q-gab">Gab: D</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 1.4 Segurança -->
+          <div class="subtopic-block">
+            <div class="subtopic-hdr">1.4 Segurança da informação: princípios, ameaças e boas práticas <span>3 questões</span></div>
+            <ul class="q-list">
+              <li><span class="q-n">Q80</span><span class="q-desc">Segurança – mesa limpa e tela limpa: somente I (integridade) e III (confidencialidade) corretas (FGV PGM RJ 2025)</span><span class="q-gab">Gab: B</span></li>
+              <li><span class="q-n">Q81</span><span class="q-desc">Phishing por e-mail – método mais seguro: digitar o endereço diretamente no navegador (FGV MPE RJ 2025)</span><span class="q-gab">Gab: C</span></li>
+              <li><span class="q-n">Q82</span><span class="q-desc">Malware que criptografa dados e exige resgate em criptomoedas: ransomware (FGV TJ RS 2025)</span><span class="q-gab">Gab: C</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">5</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direitos Humanos -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direitos Humanos e Acesso à Justiça</div>
+        <div class="disc-topics">Dignidade humana · Proteção internacional e constitucional · Devido processo legal · Igualdade · Grupos vulneráveis · Políticas judiciárias de inclusão</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Princípios e fundamentos dos direitos humanos: dignidade, universalidade, indivisibilidade</li>
+              <li>Proteção internacional e constitucional dos direitos fundamentais</li>
+              <li>Acesso à justiça: devido processo legal, contraditório, ampla defesa</li>
+              <li>Efetividade da prestação jurisdicional</li>
+              <li>Igualdade, não discriminação e proteção de grupos vulneráveis</li>
+              <li>Políticas judiciárias de inclusão e cidadania</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">5</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ MÓDULO ESPECÍFICOS ═══════════════════ -->
+<div class="section-label">
+  <h2>Módulo de Conhecimentos Específicos</h2>
+</div>
+
+<div class="modulo">
+  <div class="modulo-header especif">
+    <h3>⚖️ Conhecimentos Específicos — Analista Jurídico</h3>
+    <span class="total-badge">50 questões</span>
+  </div>
+  <div class="disc-table">
+
+    <!-- Direito Constitucional -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Constitucional</div>
+        <div class="disc-topics">CF/1988 · Normas constitucionais · Direitos fundamentais · Organização do Estado · Poderes Legislativo, Executivo e Judiciário · Funções essenciais à justiça</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Aplicabilidade das normas: eficácia plena, contida, limitada e programáticas</li>
+              <li>Princípios fundamentais da CF/1988</li>
+              <li>Direitos individuais e coletivos; direitos sociais; nacionalidade; direitos políticos</li>
+              <li>Organização do Estado: federação, repartição de competências, entes federativos</li>
+              <li>Poder Legislativo: processo legislativo e fiscalização</li>
+              <li>Poder Executivo: atribuições e responsabilidades</li>
+              <li>Poder Judiciário: organização, competências, CNJ, garantias da magistratura</li>
+              <li>Funções essenciais: MP, Advocacia Pública, Defensoria Pública</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">10</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direito Administrativo -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Administrativo</div>
+        <div class="disc-topics">Administração Pública · Atos administrativos · Agentes públicos · Licitações (Lei 14.133/2021) · Contratos · Controle · Improbidade · Responsabilidade do Estado</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Administração Pública: organização, princípios, Adm. Direta e Indireta, terceiro setor</li>
+              <li>Atos administrativos: requisitos, atributos, invalidação; poderes administrativos</li>
+              <li>Discricionariedade; agentes públicos: regime jurídico, responsabilidade, processo disciplinar</li>
+              <li>Licitações e contratos (Lei 14.133/2021); concessões e parcerias</li>
+              <li>Serviços públicos; regulação; intervenção na propriedade e desapropriação</li>
+              <li>Controle interno, externo e judicial; Tribunais de Contas; controle social</li>
+              <li>Processo administrativo (Lei 9.784/1999); mandado de segurança; ação popular</li>
+              <li>Responsabilidade civil do Estado; improbidade (Lei 8.429/1992)</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">10</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direito Civil -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Civil e Direito do Consumidor</div>
+        <div class="disc-topics">LINDB · CC/2002 · Pessoas · Bens · Negócios jurídicos · Obrigações · Contratos · Responsabilidade civil · Direitos reais · Família · Sucessões · CDC</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>LINDB (DL 4.657/1942): vigência, interpretação, conflito de leis</li>
+              <li>Parte Geral do CC: pessoas naturais e jurídicas, bens, fatos e negócios jurídicos</li>
+              <li>Obrigações: modalidades, transmissão, extinção, inadimplemento e mora</li>
+              <li>Contratos: teoria geral, função social, boa-fé, contratos em espécie</li>
+              <li>Responsabilidade civil: subjetiva e objetiva; dano moral e material</li>
+              <li>Direitos reais: posse, propriedade, usucapião, usufruto, servidões, bem de família</li>
+              <li>Direito de família: entidades familiares, regime de bens, alimentos, tutela, curatela</li>
+              <li>Direito das sucessões: sucessão legítima e testamentária, herança</li>
+              <li>CDC (Lei 8.078/1990): princípios, responsabilidade, práticas comerciais, cláusulas abusivas, superendividamento</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">8</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direito Processual Civil -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Processual Civil</div>
+        <div class="disc-topics">CPC/2015 · Processo de conhecimento · Provas · Tutelas provisórias · Sentença · Execução · Recursos · Precedentes (IRDR/IAC) · Processo coletivo · Juizados Especiais</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>CPC (Lei 13.105/2015): princípios, jurisdição, ação e competência</li>
+              <li>Processo de conhecimento: petição inicial, resposta do réu, saneamento, audiências</li>
+              <li>Mediação, conciliação e justiça multiportas</li>
+              <li>Provas: teoria geral, ônus da prova, poderes instrutórios do juiz, prova ilícita</li>
+              <li>Tutelas provisórias: urgência, evidência, estabilização e cautelar</li>
+              <li>Sentença e coisa julgada; remessa necessária; preclusão</li>
+              <li>Cumprimento de sentença e execução; execução contra a Fazenda Pública</li>
+              <li>Recursos e processos nos tribunais; ação rescisória; precedentes (IRDR, IAC)</li>
+              <li>Processo coletivo; tutela de direitos difusos e coletivos; mandado de segurança</li>
+              <li>Procedimentos especiais; juizados especiais; arbitragem</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">8</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direito Penal -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Penal</div>
+        <div class="disc-topics">CP — Parte Geral e Especial · Princípios penais · Teoria do crime · Penas · Legislação especial: Lei de Drogas · Lei Maria da Penha · ECA · Estatuto do Idoso · Pacote Anticrime</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>CP — Parte Geral: princípios, lei penal no tempo e espaço, teoria do crime (fato típico, ilicitude, culpabilidade)</li>
+              <li>Dolo, culpa, erro; iter criminis; concurso de pessoas; penas e dosimetria</li>
+              <li>Medidas de segurança; concurso de crimes; extinção da punibilidade</li>
+              <li>CP — Parte Especial: crimes contra a pessoa, patrimônio, dignidade sexual, fé pública, Administração Pública</li>
+              <li>Legislação especial: Lei de Drogas (11.343/2006), Lei Maria da Penha (11.340/2006), ECA (8.069/1990)</li>
+              <li>Estatuto do Idoso (10.741/2003), Lei dos Crimes Hediondos, Pacote Anticrime (13.964/2019)</li>
+              <li>Lei de Organizações Criminosas (12.850/2013), Lei de Lavagem de Dinheiro (9.613/1998)</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">5</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direito Processual Penal -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direito Processual Penal</div>
+        <div class="disc-topics">CPP · Inquérito policial · Ação penal · Provas · Prisões e cautelares · Nulidades · Recursos · Execução penal · Violência doméstica · Justiça restaurativa</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>CPP (DL 3.689/1941): fontes, princípios, sistemas processuais penais e garantismo</li>
+              <li>Inquérito policial; investigação pelo MP; ANPP; direitos do investigado</li>
+              <li>Ação penal: condições, espécies, denúncia e queixa; jurisdição e competência</li>
+              <li>Procedimentos: ordinário, sumário, sumaríssimo, especiais; tribunal do júri</li>
+              <li>Prova: teoria geral, cadeia de custódia, provas digitais, prova ilícita, interceptação telefônica</li>
+              <li>Prisões e medidas cautelares; liberdade provisória; audiência de custódia</li>
+              <li>Nulidades absolutas e relativas; recursos e ações autônomas (habeas corpus)</li>
+              <li>Execução penal: regimes, progressão, remição, RDD</li>
+              <li>Temas contemporâneos: violência doméstica, justiça restaurativa, grupos vulneráveis</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">5</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+    <!-- Direitos Humanos e Tutela Coletiva -->
+    <div class="disc-row">
+      <div class="disc-main">
+        <div class="disc-name">Direitos Humanos e Tutela Coletiva</div>
+        <div class="disc-topics">Teoria geral dos DH · Sistemas ONU e OEA · Controle de convencionalidade · Igualdade e não discriminação · Tutela coletiva · Ação Civil Pública · Lei 7.347/1985</div>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
+          <div class="topics-detail">
+            <ul>
+              <li>Teoria geral dos DH: fontes, princípios, dimensões, obrigações estatais</li>
+              <li>Sistemas global (ONU) e interamericano (OEA): estrutura, órgãos e mecanismos</li>
+              <li>Responsabilidade internacional do Estado; jurisprudência relevante</li>
+              <li>DH e ordenamento brasileiro: incorporação, hierarquia dos tratados, controle de convencionalidade</li>
+              <li>Igualdade e não discriminação: racismo (Lei 14.532/2023), ECA, Estatuto do Idoso</li>
+              <li>DH em contextos específicos: sistema prisional, socioambiental, violência de gênero</li>
+              <li>Tutela coletiva: ação civil pública como instrumento de proteção (Lei 7.347/1985)</li>
+              <li>Participação social, instrumentos de controle e mínimo existencial</li>
+            </ul>
+          </div>
+      </div>
+      <div class="pill">
+        <div class="q-num">4</div>
+        <div class="q-lbl">questões</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ DISTRIBUIÇÃO ═══════════════════ -->
+<div class="section-label">
+  <h2>Distribuição de Questões</h2>
+</div>
+
+<div class="progress-wrap">
+  <div class="prog-title">Módulo de Conhecimentos Gerais — 30 questões (37,5%)</div>
+
+  <div class="prog-row">
+    <div class="prog-name">Língua Portuguesa</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill gerais" style="width:33.3%"></div></div>
+    <div class="prog-pct">10 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Legislação Institucional do PJSC</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill gerais" style="width:20%"></div></div>
+    <div class="prog-pct">6 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Noções de Informática e Proteção de Dados</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill gerais" style="width:16.7%"></div></div>
+    <div class="prog-pct">5 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direitos Humanos e Acesso à Justiça</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill gerais" style="width:16.7%"></div></div>
+    <div class="prog-pct">5 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Ética e Gestão no Serviço Público</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill gerais" style="width:13.3%"></div></div>
+    <div class="prog-pct">4 q</div>
+  </div>
+
+  <br/>
+  <div class="prog-title">Módulo de Conhecimentos Específicos — 50 questões (62,5%)</div>
+
+  <div class="prog-row">
+    <div class="prog-name">Direito Constitucional</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:100%"></div></div>
+    <div class="prog-pct">10 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direito Administrativo</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:100%"></div></div>
+    <div class="prog-pct">10 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direito Civil e Direito do Consumidor</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:80%"></div></div>
+    <div class="prog-pct">8 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direito Processual Civil</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:80%"></div></div>
+    <div class="prog-pct">8 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direito Penal</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:50%"></div></div>
+    <div class="prog-pct">5 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direito Processual Penal</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:50%"></div></div>
+    <div class="prog-pct">5 q</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-name">Direitos Humanos e Tutela Coletiva</div>
+    <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:40%"></div></div>
+    <div class="prog-pct">4 q</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SEÇÃO 2: ANOTAÇÕES ═══════════════════ -->
+<div class="section-label" style="padding-top:1.25rem">
+  <h2>✏️ Anotações de Estudo</h2>
+</div>
+
+<!-- FORMULÁRIO -->
+<div class="modulo">
+  <div class="modulo-header anot">
+    <h3>📝 Nova Anotação</h3>
+    <span class="total-badge" id="anot-count">—</span>
+  </div>
+  <div class="disc-table">
+    <div class="anot-form-wrap">
+      <form id="form-anotacao" novalidate>
+        <div class="anot-grid">
+
+          <div class="anot-group">
+            <label class="anot-label" for="anot-sel-mat">Matéria</label>
+            <div class="anot-select-wrap">
+              <select class="anot-select" id="anot-sel-mat" required>
+                <option value="">— Selecione a matéria —</option>
+                <optgroup label="📚 Conhecimentos Gerais">
+                  <option>Língua Portuguesa</option>
+                  <option>Legislação Institucional do PJSC</option>
+                  <option>Ética e Gestão no Serviço Público</option>
+                  <option>Noções de Informática e Proteção de Dados</option>
+                  <option>Direitos Humanos e Acesso à Justiça</option>
+                </optgroup>
+                <optgroup label="⚖️ Conhecimentos Específicos">
+                  <option>Direito Constitucional</option>
+                  <option>Direito Administrativo</option>
+                  <option>Direito Civil e Direito do Consumidor</option>
+                  <option>Direito Processual Civil</option>
+                  <option>Direito Penal</option>
+                  <option>Direito Processual Penal</option>
+                  <option>Direitos Humanos e Tutela Coletiva</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div class="anot-group">
+            <label class="anot-label" for="anot-sel-ass">Assunto / Tópico do Edital</label>
+            <div class="anot-select-wrap">
+              <select class="anot-select" id="anot-sel-ass" disabled required>
+                <option value="">— Selecione a matéria primeiro —</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="anot-group full">
+            <label class="anot-label">Referência de Agrupamento
+              <span style="font-size:.7rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(gerada automaticamente)</span>
+            </label>
+            <div class="anot-ref-box">
+              <span class="anot-ref-lbl">Código:</span>
+              <span class="anot-ref-code empty" id="anot-ref-code">Selecione a matéria e o assunto</span>
+            </div>
+            <p class="anot-hint">Gerada a partir das iniciais da matéria + assunto — usada para agrupar e filtrar suas anotações.</p>
+          </div>
+
+          <div class="anot-group full">
+            <label class="anot-label" for="anot-topico">Anotação</label>
+            <textarea class="anot-textarea" id="anot-topico" required
+              placeholder="Digite sua anotação, conceito, esquema ou resumo…"></textarea>
+            <p class="anot-hint">Você pode adicionar quantas anotações quiser, uma por vez. O texto é limpo após salvar.</p>
+          </div>
+
+        </div><!-- /anot-grid -->
+
+        <button type="submit" class="anot-submit" id="anot-btn-submit">
+          <div class="anot-spinner" id="anot-spinner"></div>
+          <span id="anot-btn-txt">💾 Salvar Anotação</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ANOTAÇÕES SALVAS -->
+<div class="modulo" style="padding-top:0">
+  <div class="modulo-header" style="background:var(--navy);border-radius:10px 10px 0 0">
+    <h3>🗂️ Anotações Salvas</h3>
+    <button class="anot-btn-refresh" id="anot-btn-refresh" type="button">↻ Atualizar</button>
+  </div>
+  <div class="disc-table" style="border-radius:0 0 10px 10px">
+
+    <!-- filtros -->
+    <div class="anot-filters">
+      <div class="anot-flt-wrap">
+        <select class="anot-flt-sel" id="anot-flt-mat">
+          <option value="">Todas as matérias</option>
+        </select>
+      </div>
+      <div class="anot-flt-wrap">
+        <select class="anot-flt-sel" id="anot-flt-ref">
+          <option value="">Todas as referências</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- lista -->
+    <div id="anot-note-list">
+      <div class="anot-empty">⏳ Carregando anotações…</div>
+    </div>
+    <div class="anot-load-more" id="anot-load-more" style="display:none">
+      <button class="anot-btn-load" id="anot-btn-load" type="button">Carregar mais</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="anot-toast"></div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  TJSC 2026 · Banca FGV · Edital publicado em 27/03/2026 · Informações: 0800-5913078 · concursotjscservidor26@fgv.br
+</footer>
+
+<script>
+  // Toggle expand buttons
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    // Store the original "open" label on each button
+    btn.dataset.openLabel = btn.textContent;
+    btn.addEventListener('click', () => {
+      const detail = btn.closest('.disc-main').querySelector('.topics-detail');
+      if (!detail) return;
+      const visible = detail.style.display === 'block';
+      detail.style.display = visible ? 'none' : 'block';
+      btn.textContent = visible ? btn.dataset.openLabel : '▾ Ocultar';
+    });
+  });
+  // Hide all details initially
+  document.querySelectorAll('.topics-detail').forEach(d => d.style.display = 'none');
+
+  // Toggle sub-section question buttons
+  document.querySelectorAll('.subsec-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const section = document.getElementById(targetId);
+      if (!section) return;
+      const visible = section.style.display === 'block';
+      section.style.display = visible ? 'none' : 'block';
+      btn.textContent = (visible ? '▸' : '▾') + btn.textContent.slice(1);
+    });
+  });
+  // Hide all question sub-sections initially
+  document.querySelectorAll('.questions-section').forEach(s => s.style.display = 'none');
+
+  /* ══════════════════════════════════════════════════════
+     SEÇÃO 2 — ANOTAÇÕES DE ESTUDO · SUPABASE
+  ══════════════════════════════════════════════════════ */
+
+  // ── Config Supabase ──
+  const SUPA_URL = 'https://plwspyrxxygpkqhvzvkc.supabase.co/rest/v1/analista_tjsc';
+  const SUPA_KEY = 'sb_publishable_5Dkhtq3HcMjNyAHdv5zATA_STS6OjU9';
+  const SUPA_HDR = {
+    'apikey':        SUPA_KEY,
+    'Authorization': 'Bearer ' + SUPA_KEY,
+    'Content-Type':  'application/json',
+  };
+
+  // ── Mapa matéria → assuntos ──
+  const ANOT_ASSUNTOS = {
+    'Língua Portuguesa': [
+      'Compreensão e interpretação de textos de gêneros variados',
+      'Reconhecimento de tipos e gêneros textuais',
+      'Ortografia oficial: emprego das letras e acentuação gráfica',
+      'Mecanismos de coesão textual: referenciação, conectores, tempos e modos verbais',
+      'Estrutura morfossintática: coordenação, subordinação, pontuação',
+      'Concordância verbal e nominal; emprego da crase',
+      'Colocação dos pronomes átonos',
+      'Reescritura de frases e retextualização',
+    ],
+    'Legislação Institucional do PJSC': [
+      'Estrutura, competências e funcionamento do Poder Judiciário estadual',
+      'Organização judiciária: divisão, composição, órgãos jurisdicionais e administrativos',
+      'Regimento Interno do TJSC: organização, competências e funcionamento',
+      'Código de Normas da Corregedoria-Geral da Justiça',
+      'Regime jurídico e disciplinar dos servidores',
+      'Lei 5.624/1979 | Regimento Interno TJSC | Lei 6.745/1985 | LC 639/2015',
+    ],
+    'Ética e Gestão no Serviço Público': [
+      'Princípios e ética na Administração Pública; moralidade e probidade',
+      'Conflito de interesses; deveres e vedações do servidor',
+      'Responsabilização administrativa, civil e penal; processo disciplinar',
+      'Improbidade administrativa (Lei 8.429/1992)',
+      'Responsabilização de pessoas jurídicas; Lei Anticorrupção (Lei 12.846/2013)',
+      'Gestão de pessoas: motivação, liderança, cultura organizacional',
+      'Integridade institucional: transparência, prevenção de irregularidades',
+      'Código de Ética e Conduta do PJSC (Resolução TJ 22/2021)',
+    ],
+    'Noções de Informática e Proteção de Dados': [
+      '1.1 Conceitos básicos de hardware e software',
+      '1.2 Sistemas operacionais e aplicativos',
+      '1.3 Redes de computadores e internet',
+      '1.4 Segurança da informação: princípios, ameaças e boas práticas',
+    ],
+    'Direitos Humanos e Acesso à Justiça': [
+      'Princípios e fundamentos dos direitos humanos: dignidade, universalidade, indivisibilidade',
+      'Proteção internacional e constitucional dos direitos fundamentais',
+      'Acesso à justiça: devido processo legal, contraditório, ampla defesa',
+      'Efetividade da prestação jurisdicional',
+      'Igualdade, não discriminação e proteção de grupos vulneráveis',
+      'Políticas judiciárias de inclusão e cidadania',
+    ],
+    'Direito Constitucional': [
+      'Aplicabilidade das normas: eficácia plena, contida, limitada e programáticas',
+      'Princípios fundamentais da CF/1988',
+      'Direitos individuais e coletivos; direitos sociais; nacionalidade; direitos políticos',
+      'Organização do Estado: federação, repartição de competências, entes federativos',
+      'Poder Legislativo: processo legislativo e fiscalização',
+      'Poder Executivo: atribuições e responsabilidades',
+      'Poder Judiciário: organização, competências, CNJ, garantias da magistratura',
+      'Funções essenciais: MP, Advocacia Pública, Defensoria Pública',
+    ],
+    'Direito Administrativo': [
+      'Administração Pública: organização, princípios, Adm. Direta e Indireta, terceiro setor',
+      'Atos administrativos: requisitos, atributos, invalidação; poderes administrativos',
+      'Discricionariedade; agentes públicos: regime jurídico, responsabilidade, processo disciplinar',
+      'Licitações e contratos (Lei 14.133/2021); concessões e parcerias',
+      'Serviços públicos; regulação; intervenção na propriedade e desapropriação',
+      'Controle interno, externo e judicial; Tribunais de Contas; controle social',
+      'Processo administrativo (Lei 9.784/1999); mandado de segurança; ação popular',
+      'Responsabilidade civil do Estado; improbidade (Lei 8.429/1992)',
+    ],
+    'Direito Civil e Direito do Consumidor': [
+      'LINDB (DL 4.657/1942): vigência, interpretação, conflito de leis',
+      'Parte Geral do CC: pessoas naturais e jurídicas, bens, fatos e negócios jurídicos',
+      'Obrigações: modalidades, transmissão, extinção, inadimplemento e mora',
+      'Contratos: teoria geral, função social, boa-fé, contratos em espécie',
+      'Responsabilidade civil: subjetiva e objetiva; dano moral e material',
+      'Direitos reais: posse, propriedade, usucapião, usufruto, servidões, bem de família',
+      'Direito de família: entidades familiares, regime de bens, alimentos, tutela, curatela',
+      'Direito das sucessões: sucessão legítima e testamentária, herança',
+      'CDC (Lei 8.078/1990): princípios, responsabilidade, práticas comerciais, cláusulas abusivas, superendividamento',
+    ],
+    'Direito Processual Civil': [
+      'CPC (Lei 13.105/2015): princípios, jurisdição, ação e competência',
+      'Processo de conhecimento: petição inicial, resposta do réu, saneamento, audiências',
+      'Mediação, conciliação e justiça multiportas',
+      'Provas: teoria geral, ônus da prova, poderes instrutórios do juiz, prova ilícita',
+      'Tutelas provisórias: urgência, evidência, estabilização e cautelar',
+      'Sentença e coisa julgada; remessa necessária; preclusão',
+      'Cumprimento de sentença e execução; execução contra a Fazenda Pública',
+      'Recursos e processos nos tribunais; ação rescisória; precedentes (IRDR, IAC)',
+      'Processo coletivo; tutela de direitos difusos e coletivos; mandado de segurança',
+      'Procedimentos especiais; juizados especiais; arbitragem',
+    ],
+    'Direito Penal': [
+      'CP — Parte Geral: princípios, lei penal no tempo e espaço, teoria do crime (fato típico, ilicitude, culpabilidade)',
+      'Dolo, culpa, erro; iter criminis; concurso de pessoas; penas e dosimetria',
+      'Medidas de segurança; concurso de crimes; extinção da punibilidade',
+      'CP — Parte Especial: crimes contra a pessoa, patrimônio, dignidade sexual, fé pública, Administração Pública',
+      'Legislação especial: Lei de Drogas (11.343/2006), Lei Maria da Penha (11.340/2006), ECA (8.069/1990)',
+      'Estatuto do Idoso (10.741/2003), Lei dos Crimes Hediondos, Pacote Anticrime (13.964/2019)',
+      'Lei de Organizações Criminosas (12.850/2013), Lei de Lavagem de Dinheiro (9.613/1998)',
+    ],
+    'Direito Processual Penal': [
+      'CPP (DL 3.689/1941): fontes, princípios, sistemas processuais penais e garantismo',
+      'Inquérito policial; investigação pelo MP; ANPP; direitos do investigado',
+      'Ação penal: condições, espécies, denúncia e queixa; jurisdição e competência',
+      'Procedimentos: ordinário, sumário, sumaríssimo, especiais; tribunal do júri',
+      'Prova: teoria geral, cadeia de custódia, provas digitais, prova ilícita, interceptação telefônica',
+      'Prisões e medidas cautelares; liberdade provisória; audiência de custódia',
+      'Nulidades absolutas e relativas; recursos e ações autônomas (habeas corpus)',
+      'Execução penal: regimes, progressão, remição, RDD',
+      'Temas contemporâneos: violência doméstica, justiça restaurativa, grupos vulneráveis',
+    ],
+    'Direitos Humanos e Tutela Coletiva': [
+      'Teoria geral dos DH: fontes, princípios, dimensões, obrigações estatais',
+      'Sistemas global (ONU) e interamericano (OEA): estrutura, órgãos e mecanismos',
+      'Responsabilidade internacional do Estado; jurisprudência relevante',
+      'DH e ordenamento brasileiro: incorporação, hierarquia dos tratados, controle de convencionalidade',
+      'Igualdade e não discriminação: racismo (Lei 14.532/2023), ECA, Estatuto do Idoso',
+      'DH em contextos específicos: sistema prisional, socioambiental, violência de gênero',
+      'Tutela coletiva: ação civil pública como instrumento de proteção (Lei 7.347/1985)',
+      'Participação social, instrumentos de controle e mínimo existencial',
+    ],
+  };
+
+  const ANOT_GERAIS = [
+    'Língua Portuguesa','Legislação Institucional do PJSC',
+    'Ética e Gestão no Serviço Público','Noções de Informática e Proteção de Dados',
+    'Direitos Humanos e Acesso à Justiça',
+  ];
+
+  // ── Elementos ──
+  const anotSelMat  = document.getElementById('anot-sel-mat');
+  const anotSelAss  = document.getElementById('anot-sel-ass');
+  const anotRefCode = document.getElementById('anot-ref-code');
+  const anotTopico  = document.getElementById('anot-topico');
+  const anotBtnSub  = document.getElementById('anot-btn-submit');
+  const anotSpinner = document.getElementById('anot-spinner');
+  const anotBtnTxt  = document.getElementById('anot-btn-txt');
+  const anotToast   = document.getElementById('anot-toast');
+  const anotNoteList= document.getElementById('anot-note-list');
+  const anotCount   = document.getElementById('anot-count');
+  const anotBtnRef  = document.getElementById('anot-btn-refresh');
+  const anotFltMat  = document.getElementById('anot-flt-mat');
+  const anotFltRef  = document.getElementById('anot-flt-ref');
+  const anotLoadMore= document.getElementById('anot-load-more');
+  const anotBtnLoad = document.getElementById('anot-btn-load');
+
+  // ── Gerador de ref automática ──
+  const ANOT_STOP = new Set([
+    'de','do','da','dos','das','e','a','o','as','os','em','para','por',
+    'com','no','na','nos','nas','um','uma','ao','aos','ou','que','se',
+  ]);
+  function anotSemAcento(s) {
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function anotInitials(str, max) {
+    return anotSemAcento(str)
+      .replace(/[\d.,;:!?()[\]{}'"""—–\-\/\\|]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 1 && !ANOT_STOP.has(w.toLowerCase()))
+      .slice(0, max)
+      .map(w => w[0].toUpperCase())
+      .join('');
+  }
+  function anotGerarRef(mat, ass) {
+    if (!mat || !ass) return '';
+    return '#' + anotInitials(mat, 5) + anotInitials(ass, 3);
+  }
+  function anotAtualizarRef() {
+    const ref = anotGerarRef(anotSelMat.value, anotSelAss.value);
+    if (ref) {
+      anotRefCode.textContent = ref;
+      anotRefCode.classList.remove('empty');
+    } else {
+      anotRefCode.textContent = 'Selecione a matéria e o assunto';
+      anotRefCode.classList.add('empty');
+    }
+  }
+
+  // ── Dropdown assuntos ──
+  anotSelMat.addEventListener('change', () => {
+    const mat = anotSelMat.value;
+    anotSelAss.innerHTML = '';
+    if (!mat) {
+      anotSelAss.innerHTML = '<option value="">— Selecione a matéria primeiro —</option>';
+      anotSelAss.disabled = true;
+      anotAtualizarRef(); return;
+    }
+    anotSelAss.disabled = false;
+    const ph = document.createElement('option');
+    ph.value = ''; ph.textContent = '— Selecione o assunto —';
+    anotSelAss.appendChild(ph);
+    (ANOT_ASSUNTOS[mat] || []).forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = a;
+      anotSelAss.appendChild(opt);
+    });
+    anotAtualizarRef();
+  });
+  anotSelAss.addEventListener('change', anotAtualizarRef);
+
+  // ── Toast ──
+  let anotToastTimer;
+  function anotShowToast(msg, type) {
+    clearTimeout(anotToastTimer);
+    anotToast.textContent = msg;
+    anotToast.className = 'show ' + type;
+    anotToastTimer = setTimeout(() => { anotToast.className = ''; }, 3500);
+  }
+
+  // ── Submit ──
+  document.getElementById('form-anotacao').addEventListener('submit', async e => {
+    e.preventDefault();
+    const mat    = anotSelMat.value.trim();
+    const ass    = anotSelAss.value.trim();
+    const topico = anotTopico.value.trim();
+    const ref    = anotGerarRef(mat, ass);
+
+    if (!mat)    { anotShowToast('⚠️ Selecione a matéria', 'err');  anotSelMat.focus();  return; }
+    if (!ass)    { anotShowToast('⚠️ Selecione o assunto', 'err');  anotSelAss.focus();  return; }
+    if (!topico) { anotShowToast('⚠️ A anotação não pode estar vazia', 'err'); anotTopico.focus(); return; }
+
+    anotBtnSub.disabled = true;
+    anotSpinner.style.display = 'block';
+    anotBtnTxt.textContent = 'Salvando…';
+
+    try {
+      const res = await fetch(SUPA_URL, {
+        method: 'POST',
+        headers: { ...SUPA_HDR, 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ materia_anl: mat, assunto_anl: ass, topicos_anl: topico, ref_anl: ref }),
+      });
+      if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.message || 'HTTP ' + res.status); }
+
+      anotShowToast('✅ Anotação salva!', 'ok');
+      anotTopico.value = '';
+      anotTopico.focus();
+      await anotLoadNotes();
+    } catch (err) {
+      anotShowToast('❌ Erro: ' + err.message, 'err');
+    } finally {
+      anotBtnSub.disabled = false;
+      anotSpinner.style.display = 'none';
+      anotBtnTxt.textContent = '💾 Salvar Anotação';
+    }
+  });
+
+  // ── Carregar e renderizar notas ──
+  const ANOT_PAGE = 20;
+  let anotAllNotes = [];
+
+  async function anotLoadNotes() {
+    try {
+      const res = await fetch(SUPA_URL + '?select=*&order=id.desc', { headers: SUPA_HDR });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      anotAllNotes = await res.json();
+      anotUpdateFilters();
+      anotRender();
+    } catch (err) {
+      anotNoteList.innerHTML = '<div class="anot-empty">⚠️ Erro ao carregar: ' + anotEsc(err.message) + '</div>';
+    }
+  }
+
+  function anotUpdateFilters() {
+    const mats = [...new Set(anotAllNotes.map(n => n.materia_anl).filter(Boolean))].sort();
+    anotFltMat.innerHTML = '<option value="">Todas as matérias</option>';
+    mats.forEach(m => { const o = document.createElement('option'); o.value = o.textContent = m; anotFltMat.appendChild(o); });
+
+    const refs = [...new Set(anotAllNotes.map(n => n.ref_anl).filter(Boolean))].sort();
+    anotFltRef.innerHTML = '<option value="">Todas as referências</option>';
+    refs.forEach(r => { const o = document.createElement('option'); o.value = o.textContent = r; anotFltRef.appendChild(o); });
+  }
+
+  function anotRender() {
+    const matF = anotFltMat.value;
+    const refF = anotFltRef.value;
+    const filtered = anotAllNotes.filter(n =>
+      (!matF || n.materia_anl === matF) && (!refF || n.ref_anl === refF)
+    );
+
+    const total = filtered.length;
+    anotCount.textContent = total + ' anotaç' + (total === 1 ? 'ão' : 'ões');
+
+    if (total === 0) {
+      anotNoteList.innerHTML = '<div class="anot-empty">📭 Nenhuma anotação encontrada.</div>';
+      anotLoadMore.style.display = 'none'; return;
+    }
+
+    let shown = ANOT_PAGE;
+    const render = (n) => shown => filtered.slice(0, shown).map(anotNoteCard).join('');
+
+    anotNoteList.innerHTML = filtered.slice(0, shown).map(anotNoteCard).join('');
+
+    if (total > shown) {
+      anotLoadMore.style.display = 'block';
+      anotBtnLoad.textContent = 'Ver mais (' + (total - shown) + ' restantes)';
+      anotBtnLoad.onclick = () => {
+        shown = Math.min(shown + ANOT_PAGE, total);
+        anotNoteList.innerHTML = filtered.slice(0, shown).map(anotNoteCard).join('');
+        if (shown >= total) anotLoadMore.style.display = 'none';
+        else anotBtnLoad.textContent = 'Ver mais (' + (total - shown) + ' restantes)';
+      };
+    } else {
+      anotLoadMore.style.display = 'none';
+    }
+  }
+
+  function anotNoteCard(n) {
+    const isGerais = ANOT_GERAIS.includes(n.materia_anl);
+    const modTag = isGerais
+      ? '<span class="anot-tag gerais">Gerais</span>'
+      : '<span class="anot-tag especif">Específicos</span>';
+    const refTag = n.ref_anl
+      ? '<span class="anot-tag ref">' + anotEsc(n.ref_anl) + '</span>' : '';
+    return `<div class="anot-note-item">
+      <div>
+        <div class="anot-note-meta">
+          ${modTag}
+          <span class="anot-tag mat">${anotEsc(n.materia_anl||'—')}</span>
+          <span class="anot-tag ass">${anotEsc(n.assunto_anl||'—')}</span>
+          ${refTag}
+        </div>
+        <div class="anot-note-body">${anotEsc(n.topicos_anl||'')}</div>
+      </div>
+      <div class="anot-note-id">#${n.id}</div>
+    </div>`;
+  }
+
+  function anotEsc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  anotFltMat.addEventListener('change', anotRender);
+  anotFltRef.addEventListener('change', anotRender);
+  anotBtnRef.addEventListener('click', anotLoadNotes);
+
+  // Init
+  anotLoadNotes();
+</script>
+</body>
+</html>

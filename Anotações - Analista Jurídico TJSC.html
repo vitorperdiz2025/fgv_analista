@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anotações de Estudo — Analista Jurídico · TJSC 2026</title>
+  <style>
+    :root {
+      --navy:   #1a2744;
+      --blue:   #2a4a8a;
+      --mid:    #3a6abf;
+      --accent: #e8a020;
+      --light:  #f0f4fb;
+      --white:  #ffffff;
+      --text:   #1e2b40;
+      --muted:  #6b7a99;
+      --border: #d0dbed;
+      --green:  #2e7d32;
+      --red:    #c62828;
+      --green-bg: #e8f5e9;
+      --red-bg:   #ffebee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .header-icon { font-size: 2.5rem; flex-shrink: 0; }
+    header h1   { font-size: 1.5rem; font-weight: 700; letter-spacing: -.5px; }
+    header p    { font-size: .88rem; opacity: .78; margin-top: .2rem; }
+    .back-link  {
+      margin-left: auto;
+      color: rgba(255,255,255,.8);
+      font-size: .82rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.3);
+      padding: .35rem .8rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .back-link:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 820px;
+      margin: 2rem auto;
+      padding: 0 1.25rem 3rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(26,39,68,.06);
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      padding-bottom: .6rem;
+      border-bottom: 2px solid var(--light);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .card-title span { font-size: 1.1rem; }
+
+    /* ── FORM ── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: .35rem; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    select, input[type="text"], textarea {
+      font-family: inherit;
+      font-size: .92rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .6rem .85rem;
+      width: 100%;
+      transition: border-color .15s, box-shadow .15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    select:focus, input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: var(--mid);
+      box-shadow: 0 0 0 3px rgba(58,106,191,.12);
+    }
+    select:disabled { background: var(--light); color: var(--muted); cursor: not-allowed; }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: .85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      font-size: .85rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .hint {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: .15rem;
+    }
+
+    /* ── REF AUTO BADGE ── */
+    .ref-auto-wrap {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .55rem .85rem;
+      border: 1.5px dashed var(--border);
+      border-radius: 8px;
+      background: var(--light);
+      min-height: 2.4rem;
+    }
+    .ref-auto-label {
+      font-size: .76rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .ref-auto-code {
+      font-size: .95rem;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      color: var(--navy);
+      letter-spacing: .5px;
+    }
+    .ref-auto-code.empty {
+      font-size: .8rem;
+      font-weight: 400;
+      color: #bbb;
+      font-family: inherit;
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      width: 100%;
+      padding: .85rem 1.5rem;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--mid) 100%);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+      margin-top: .5rem;
+    }
+    .btn-submit:hover  { opacity: .92; }
+    .btn-submit:active { transform: scale(.99); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .6s linear infinite;
+      display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      padding: .75rem 1.4rem;
+      border-radius: 9px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      transition: transform .3s ease;
+      z-index: 999;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+    #toast.ok  { background: var(--green); }
+    #toast.err { background: var(--red); }
+
+    /* ── RECENT NOTES ── */
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .notes-count {
+      font-size: .78rem;
+      color: var(--muted);
+      background: var(--light);
+      padding: .2rem .6rem;
+      border-radius: 20px;
+    }
+    .btn-refresh {
+      font-size: .78rem;
+      color: var(--mid);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .22rem .65rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .12s;
+    }
+    .btn-refresh:hover { background: var(--light); }
+
+    /* ── FILTERS ── */
+    .filter-bar {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-bar select {
+      flex: 1;
+      min-width: 160px;
+      font-size: .82rem;
+      padding: .4rem .75rem;
+    }
+
+    /* ── NOTE CARD ── */
+    .note-list { display: flex; flex-direction: column; gap: .75rem; }
+    .note-item {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: .9rem 1.1rem;
+      background: var(--white);
+      position: relative;
+    }
+    .note-item:hover { border-color: #b0c4ea; }
+    .note-meta {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: .45rem;
+    }
+    .note-materia {
+      font-size: .72rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: var(--white);
+      padding: .18rem .55rem;
+      border-radius: 5px;
+      letter-spacing: .2px;
+    }
+    .note-assunto {
+      font-size: .72rem;
+      color: var(--blue);
+      background: #dce8ff;
+      padding: .18rem .55rem;
+      border-radius: 5px;
+    }
+    .note-ref {
+      font-size: .7rem;
+      color: var(--muted);
+      background: var(--light);
+      padding: .15rem .5rem;
+      border-radius: 5px;
+      margin-left: auto;
+    }
+    .note-id {
+      font-size: .66rem;
+      color: #bbb;
+      position: absolute;
+      top: .6rem;
+      right: .8rem;
+    }
+    .note-body {
+      font-size: .87rem;
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .empty-state .icon { font-size: 2rem; margin-bottom: .5rem; }
+
+    .load-more {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .btn-load {
+      font-size: .82rem;
+      color: var(--mid);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: .45rem 1.2rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .12s;
+    }
+    .btn-load:hover { background: var(--light); }
+
+    /* ── MODULO BADGE ── */
+    .modulo-tag {
+      font-size: .65rem;
+      padding: .1rem .42rem;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .modulo-tag.gerais  { background: #e3f2fd; color: #1565c0; }
+    .modulo-tag.especif { background: #fce4ec; color: #880e4f; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+      header { padding: 1.25rem 1rem; }
+      .card  { padding: 1.25rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-icon">📝</div>
+  <div>
+    <h1>Anotações de Estudo</h1>
+    <p>Analista Jurídico · TJSC 2026 · Banca FGV</p>
+  </div>
+  <a class="back-link" href="Dashboard - Analista Jurídico TJSC.html">← Dashboard</a>
+</header>
+
+<div class="page">
+
+  <!-- FORMULÁRIO -->
+  <div class="card">
+    <div class="card-title"><span>✏️</span> Nova Anotação</div>
+
+    <form id="form-anotacao" novalidate>
+      <div class="form-grid">
+
+        <!-- Matéria -->
+        <div class="form-group">
+          <label for="sel-materia">Matéria</label>
+          <div class="select-wrap">
+            <select id="sel-materia" required>
+              <option value="">— Selecione a matéria —</option>
+              <optgroup label="📚 Conhecimentos Gerais">
+                <option>Língua Portuguesa</option>
+                <option>Legislação Institucional do PJSC</option>
+                <option>Ética e Gestão no Serviço Público</option>
+                <option>Noções de Informática e Proteção de Dados</option>
+                <option>Direitos Humanos e Acesso à Justiça</option>
+              </optgroup>
+              <optgroup label="⚖️ Conhecimentos Específicos">
+                <option>Direito Constitucional</option>
+                <option>Direito Administrativo</option>
+                <option>Direito Civil e Direito do Consumidor</option>
+                <option>Direito Processual Civil</option>
+                <option>Direito Penal</option>
+                <option>Direito Processual Penal</option>
+                <option>Direitos Humanos e Tutela Coletiva</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <!-- Assunto -->
+        <div class="form-group">
+          <label for="sel-assunto">Assunto / Tópico do Edital</label>
+          <div class="select-wrap">
+            <select id="sel-assunto" disabled required>
+              <option value="">— Selecione a matéria primeiro —</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Referência automática -->
+        <div class="form-group full">
+          <label>Referência de Agrupamento <em style="font-weight:400;text-transform:none">(gerada automaticamente)</em></label>
+          <div class="ref-auto-wrap">
+            <span class="ref-auto-label">Código:</span>
+            <span class="ref-auto-code empty" id="ref-auto-code">Selecione a matéria e o assunto</span>
+          </div>
+          <p class="hint">Gerada a partir das iniciais da matéria + assunto. Usada para agrupar e filtrar suas anotações.</p>
+        </div>
+
+        <!-- Anotação -->
+        <div class="form-group full">
+          <label for="inp-topico">Anotação</label>
+          <textarea id="inp-topico" required placeholder="Digite sua anotação, conceito, esquema ou resumo…"></textarea>
+          <p class="hint">Você pode adicionar quantas anotações quiser, uma por vez.</p>
+        </div>
+
+      </div><!-- /form-grid -->
+
+      <button type="submit" class="btn-submit" id="btn-submit">
+        <div class="spinner" id="spinner"></div>
+        <span id="btn-txt">💾 Salvar Anotação</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- ANOTAÇÕES RECENTES -->
+  <div class="card">
+    <div class="card-title">
+      <span>🗂️</span> Anotações Salvas
+      <span class="notes-count" id="notes-count">—</span>
+      <button class="btn-refresh" id="btn-refresh" type="button">↻ Atualizar</button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-bar">
+      <div class="select-wrap" style="flex:1;min-width:160px">
+        <select id="flt-materia">
+          <option value="">Todas as matérias</option>
+        </select>
+      </div>
+      <div class="select-wrap" style="flex:1;min-width:160px">
+        <select id="flt-ref">
+          <option value="">Todas as referências</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="note-list" id="note-list">
+      <div class="empty-state"><div class="icon">⏳</div>Carregando anotações…</div>
+    </div>
+    <div class="load-more" id="load-more" style="display:none">
+      <button class="btn-load" id="btn-load" type="button">Carregar mais</button>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  TJSC 2026 · Banca FGV · Anotações salvas no Supabase · analista_tjsc
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  // ══════════════════════════════════════════════
+  //  CONFIG SUPABASE
+  // ══════════════════════════════════════════════
+  const SUPA_URL  = 'https://plwspyrxxygpkqhvzvkc.supabase.co/rest/v1/analista_tjsc';
+  const SUPA_KEY  = 'sb_publishable_5Dkhtq3HcMjNyAHdv5zATA_STS6OjU9';
+  const HEADERS   = {
+    'apikey':        SUPA_KEY,
+    'Authorization': 'Bearer ' + SUPA_KEY,
+    'Content-Type':  'application/json',
+  };
+
+  // ══════════════════════════════════════════════
+  //  MAPA MATÉRIA → ASSUNTOS
+  // ══════════════════════════════════════════════
+  const ASSUNTOS = {
+    'Língua Portuguesa': [
+      'Compreensão e interpretação de textos de gêneros variados',
+      'Reconhecimento de tipos e gêneros textuais',
+      'Ortografia oficial: emprego das letras e acentuação gráfica',
+      'Mecanismos de coesão textual: referenciação, conectores, tempos e modos verbais',
+      'Estrutura morfossintática: coordenação, subordinação, pontuação',
+      'Concordância verbal e nominal; emprego da crase',
+      'Colocação dos pronomes átonos',
+      'Reescritura de frases e retextualização',
+    ],
+    'Legislação Institucional do PJSC': [
+      'Estrutura, competências e funcionamento do Poder Judiciário estadual',
+      'Organização judiciária: divisão, composição, órgãos jurisdicionais e administrativos',
+      'Regimento Interno do TJSC: organização, competências e funcionamento',
+      'Código de Normas da Corregedoria-Geral da Justiça',
+      'Regime jurídico e disciplinar dos servidores',
+      'Lei 5.624/1979 | Regimento Interno TJSC | Lei 6.745/1985 | LC 639/2015',
+    ],
+    'Ética e Gestão no Serviço Público': [
+      'Princípios e ética na Administração Pública; moralidade e probidade',
+      'Conflito de interesses; deveres e vedações do servidor',
+      'Responsabilização administrativa, civil e penal; processo disciplinar',
+      'Improbidade administrativa (Lei 8.429/1992)',
+      'Responsabilização de pessoas jurídicas; Lei Anticorrupção (Lei 12.846/2013)',
+      'Gestão de pessoas: motivação, liderança, cultura organizacional',
+      'Integridade institucional: transparência, prevenção de irregularidades',
+      'Código de Ética e Conduta do PJSC (Resolução TJ 22/2021)',
+    ],
+    'Noções de Informática e Proteção de Dados': [
+      '1.1 Conceitos básicos de hardware e software',
+      '1.2 Sistemas operacionais e aplicativos',
+      '1.3 Redes de computadores e internet',
+      '1.4 Segurança da informação: princípios, ameaças e boas práticas',
+    ],
+    'Direitos Humanos e Acesso à Justiça': [
+      'Princípios e fundamentos dos direitos humanos: dignidade, universalidade, indivisibilidade',
+      'Proteção internacional e constitucional dos direitos fundamentais',
+      'Acesso à justiça: devido processo legal, contraditório, ampla defesa',
+      'Efetividade da prestação jurisdicional',
+      'Igualdade, não discriminação e proteção de grupos vulneráveis',
+      'Políticas judiciárias de inclusão e cidadania',
+    ],
+    'Direito Constitucional': [
+      'Aplicabilidade das normas: eficácia plena, contida, limitada e programáticas',
+      'Princípios fundamentais da CF/1988',
+      'Direitos individuais e coletivos; direitos sociais; nacionalidade; direitos políticos',
+      'Organização do Estado: federação, repartição de competências, entes federativos',
+      'Poder Legislativo: processo legislativo e fiscalização',
+      'Poder Executivo: atribuições e responsabilidades',
+      'Poder Judiciário: organização, competências, CNJ, garantias da magistratura',
+      'Funções essenciais: MP, Advocacia Pública, Defensoria Pública',
+    ],
+    'Direito Administrativo': [
+      'Administração Pública: organização, princípios, Adm. Direta e Indireta, terceiro setor',
+      'Atos administrativos: requisitos, atributos, invalidação; poderes administrativos',
+      'Discricionariedade; agentes públicos: regime jurídico, responsabilidade, processo disciplinar',
+      'Licitações e contratos (Lei 14.133/2021); concessões e parcerias',
+      'Serviços públicos; regulação; intervenção na propriedade e desapropriação',
+      'Controle interno, externo e judicial; Tribunais de Contas; controle social',
+      'Processo administrativo (Lei 9.784/1999); mandado de segurança; ação popular',
+      'Responsabilidade civil do Estado; improbidade (Lei 8.429/1992)',
+    ],
+    'Direito Civil e Direito do Consumidor': [
+      'LINDB (DL 4.657/1942): vigência, interpretação, conflito de leis',
+      'Parte Geral do CC: pessoas naturais e jurídicas, bens, fatos e negócios jurídicos',
+      'Obrigações: modalidades, transmissão, extinção, inadimplemento e mora',
+      'Contratos: teoria geral, função social, boa-fé, contratos em espécie',
+      'Responsabilidade civil: subjetiva e objetiva; dano moral e material',
+      'Direitos reais: posse, propriedade, usucapião, usufruto, servidões, bem de família',
+      'Direito de família: entidades familiares, regime de bens, alimentos, tutela, curatela',
+      'Direito das sucessões: sucessão legítima e testamentária, herança',
+      'CDC (Lei 8.078/1990): princípios, responsabilidade, práticas comerciais, cláusulas abusivas, superendividamento',
+    ],
+    'Direito Processual Civil': [
+      'CPC (Lei 13.105/2015): princípios, jurisdição, ação e competência',
+      'Processo de conhecimento: petição inicial, resposta do réu, saneamento, audiências',
+      'Mediação, conciliação e justiça multiportas',
+      'Provas: teoria geral, ônus da prova, poderes instrutórios do juiz, prova ilícita',
+      'Tutelas provisórias: urgência, evidência, estabilização e cautelar',
+      'Sentença e coisa julgada; remessa necessária; preclusão',
+      'Cumprimento de sentença e execução; execução contra a Fazenda Pública',
+      'Recursos e processos nos tribunais; ação rescisória; precedentes (IRDR, IAC)',
+      'Processo coletivo; tutela de direitos difusos e coletivos; mandado de segurança',
+      'Procedimentos especiais; juizados especiais; arbitragem',
+    ],
+    'Direito Penal': [
+      'CP — Parte Geral: princípios, lei penal no tempo e espaço, teoria do crime (fato típico, ilicitude, culpabilidade)',
+      'Dolo, culpa, erro; iter criminis; concurso de pessoas; penas e dosimetria',
+      'Medidas de segurança; concurso de crimes; extinção da punibilidade',
+      'CP — Parte Especial: crimes contra a pessoa, patrimônio, dignidade sexual, fé pública, Administração Pública',
+      'Legislação especial: Lei de Drogas (11.343/2006), Lei Maria da Penha (11.340/2006), ECA (8.069/1990)',
+      'Estatuto do Idoso (10.741/2003), Lei dos Crimes Hediondos, Pacote Anticrime (13.964/2019)',
+      'Lei de Organizações Criminosas (12.850/2013), Lei de Lavagem de Dinheiro (9.613/1998)',
+    ],
+    'Direito Processual Penal': [
+      'CPP (DL 3.689/1941): fontes, princípios, sistemas processuais penais e garantismo',
+      'Inquérito policial; investigação pelo MP; ANPP; direitos do investigado',
+      'Ação penal: condições, espécies, denúncia e queixa; jurisdição e competência',
+      'Procedimentos: ordinário, sumário, sumaríssimo, especiais; tribunal do júri',
+      'Prova: teoria geral, cadeia de custódia, provas digitais, prova ilícita, interceptação telefônica',
+      'Prisões e medidas cautelares; liberdade provisória; audiência de custódia',
+      'Nulidades absolutas e relativas; recursos e ações autônomas (habeas corpus)',
+      'Execução penal: regimes, progressão, remição, RDD',
+      'Temas contemporâneos: violência doméstica, justiça restaurativa, grupos vulneráveis',
+    ],
+    'Direitos Humanos e Tutela Coletiva': [
+      'Teoria geral dos DH: fontes, princípios, dimensões, obrigações estatais',
+      'Sistemas global (ONU) e interamericano (OEA): estrutura, órgãos e mecanismos',
+      'Responsabilidade internacional do Estado; jurisprudência relevante',
+      'DH e ordenamento brasileiro: incorporação, hierarquia dos tratados, controle de convencionalidade',
+      'Igualdade e não discriminação: racismo (Lei 14.532/2023), ECA, Estatuto do Idoso',
+      'DH em contextos específicos: sistema prisional, socioambiental, violência de gênero',
+      'Tutela coletiva: ação civil pública como instrumento de proteção (Lei 7.347/1985)',
+      'Participação social, instrumentos de controle e mínimo existencial',
+    ],
+  };
+
+  const GERAIS = [
+    'Língua Portuguesa',
+    'Legislação Institucional do PJSC',
+    'Ética e Gestão no Serviço Público',
+    'Noções de Informática e Proteção de Dados',
+    'Direitos Humanos e Acesso à Justiça',
+  ];
+
+  // ══════════════════════════════════════════════
+  //  ELEMENTOS
+  // ══════════════════════════════════════════════
+  const selMateria  = document.getElementById('sel-materia');
+  const selAssunto  = document.getElementById('sel-assunto');
+  const refAutoCode = document.getElementById('ref-auto-code');
+  const inpTopico   = document.getElementById('inp-topico');
+  const btnSubmit   = document.getElementById('btn-submit');
+  const spinner     = document.getElementById('spinner');
+  const btnTxt      = document.getElementById('btn-txt');
+  const toast       = document.getElementById('toast');
+  const noteList    = document.getElementById('note-list');
+  const notesCount  = document.getElementById('notes-count');
+  const btnRefresh  = document.getElementById('btn-refresh');
+  const fltMateria  = document.getElementById('flt-materia');
+  const fltRef      = document.getElementById('flt-ref');
+  const loadMore    = document.getElementById('load-more');
+  const btnLoad     = document.getElementById('btn-load');
+
+  // ══════════════════════════════════════════════
+  //  GERADOR DE REFERÊNCIA AUTOMÁTICA
+  // ══════════════════════════════════════════════
+  const STOP = new Set([
+    'de','do','da','dos','das','e','a','o','as','os','em','para','por',
+    'com','no','na','nos','nas','um','uma','à','ao','aos','às','é','ou',
+    'que','se','sua','seu','seus','suas','não','nao','são','sao',
+  ]);
+
+  // Remove acentos: Á→A, é→e, etc.
+  function semAcento(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function initials(str, maxWords) {
+    return semAcento(str)
+      // remove pontuação, números, travessões, parênteses, barras
+      .replace(/[\d.,;:!?()[\]{}'"""—–\-\/\\]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 1 && !STOP.has(w.toLowerCase()))
+      .slice(0, maxWords)
+      .map(w => w[0].toUpperCase())
+      .join('');
+  }
+
+  function gerarRef(materia, assunto) {
+    if (!materia || !assunto) return '';
+    const m = initials(materia, 5);   // ex: LP, DC, DPC, NIPD
+    const a = initials(assunto, 3);   // ex: CPA, PFC, CBH
+    return '#' + m + a;
+  }
+
+  function atualizarRef() {
+    const ref = gerarRef(selMateria.value, selAssunto.value);
+    if (ref) {
+      refAutoCode.textContent = ref;
+      refAutoCode.classList.remove('empty');
+    } else {
+      refAutoCode.textContent = 'Selecione a matéria e o assunto';
+      refAutoCode.classList.add('empty');
+    }
+  }
+
+  // ══════════════════════════════════════════════
+  //  ASSUNTOS DROPDOWN
+  // ══════════════════════════════════════════════
+  selMateria.addEventListener('change', () => {
+    const mat = selMateria.value;
+    selAssunto.innerHTML = '';
+    if (!mat) {
+      selAssunto.innerHTML = '<option value="">— Selecione a matéria primeiro —</option>';
+      selAssunto.disabled = true;
+      atualizarRef();
+      return;
+    }
+    selAssunto.disabled = false;
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = '— Selecione o assunto —';
+    selAssunto.appendChild(placeholder);
+    (ASSUNTOS[mat] || []).forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = a;
+      selAssunto.appendChild(opt);
+    });
+    atualizarRef();
+  });
+
+  selAssunto.addEventListener('change', atualizarRef);
+
+  // ══════════════════════════════════════════════
+  //  TOAST
+  // ══════════════════════════════════════════════
+  let toastTimer;
+  function showToast(msg, type = 'ok') {
+    clearTimeout(toastTimer);
+    toast.textContent = msg;
+    toast.className = `show ${type}`;
+    toastTimer = setTimeout(() => { toast.className = ''; }, 3500);
+  }
+
+  // ══════════════════════════════════════════════
+  //  SUBMIT
+  // ══════════════════════════════════════════════
+  document.getElementById('form-anotacao').addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const materia = selMateria.value.trim();
+    const assunto = selAssunto.value.trim();
+    const topico  = inpTopico.value.trim();
+    const ref     = gerarRef(materia, assunto);
+
+    if (!materia) { showToast('⚠️ Selecione a matéria', 'err'); selMateria.focus(); return; }
+    if (!assunto) { showToast('⚠️ Selecione o assunto', 'err'); selAssunto.focus(); return; }
+    if (!topico)  { showToast('⚠️ A anotação não pode estar vazia', 'err'); inpTopico.focus(); return; }
+
+    // Loading state
+    btnSubmit.disabled = true;
+    spinner.style.display = 'block';
+    btnTxt.textContent = 'Salvando…';
+
+    try {
+      const res = await fetch(SUPA_URL, {
+        method: 'POST',
+        headers: { ...HEADERS, 'Prefer': 'return=minimal' },
+        body: JSON.stringify({
+          materia_anl: materia,
+          assunto_anl: assunto,
+          topicos_anl: topico,
+          ref_anl:     ref || null,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || `HTTP ${res.status}`);
+      }
+
+      showToast('✅ Anotação salva com sucesso!', 'ok');
+
+      // Mantém matéria e assunto selecionados, limpa só o texto
+      inpTopico.value = '';
+      inpTopico.focus();
+
+      // Atualiza lista
+      await loadNotes();
+
+    } catch (err) {
+      console.error(err);
+      showToast('❌ Erro ao salvar: ' + err.message, 'err');
+    } finally {
+      btnSubmit.disabled = false;
+      spinner.style.display = 'none';
+      btnTxt.textContent = '💾 Salvar Anotação';
+    }
+  });
+
+  // ══════════════════════════════════════════════
+  //  CARREGAR ANOTAÇÕES
+  // ══════════════════════════════════════════════
+  const PAGE_SIZE = 20;
+  let allNotes = [];
+  let displayedCount = PAGE_SIZE;
+  let knownRefs = new Set();
+
+  async function loadNotes() {
+    try {
+      const res = await fetch(
+        SUPA_URL + '?select=*&order=id.desc',
+        { headers: HEADERS }
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      allNotes = await res.json();
+
+      // Atualiza filtros
+      updateFilters();
+      renderNotes();
+
+    } catch (err) {
+      noteList.innerHTML = `<div class="empty-state"><div class="icon">⚠️</div>Erro ao carregar: ${err.message}</div>`;
+    }
+  }
+
+  function updateFilters() {
+    // Matérias únicas
+    const mats = [...new Set(allNotes.map(n => n.materia_anl).filter(Boolean))].sort();
+    fltMateria.innerHTML = '<option value="">Todas as matérias</option>';
+    mats.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = m;
+      fltMateria.appendChild(opt);
+    });
+
+    // Refs únicas
+    const refs = [...new Set(allNotes.map(n => n.ref_anl).filter(Boolean))].sort();
+    knownRefs = new Set(refs);
+    fltRef.innerHTML = '<option value="">Todas as referências</option>';
+    refs.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = r;
+      fltRef.appendChild(opt);
+    });
+
+    // (refs são geradas automaticamente, não há chips manuais)
+  }
+
+  function renderNotes() {
+    const matFlt = fltMateria.value;
+    const refFlt = fltRef.value;
+
+    let filtered = allNotes.filter(n => {
+      if (matFlt && n.materia_anl !== matFlt) return false;
+      if (refFlt && n.ref_anl !== refFlt)     return false;
+      return true;
+    });
+
+    notesCount.textContent = `${filtered.length} anotação${filtered.length !== 1 ? 'ões' : ''}`;
+    displayedCount = Math.min(PAGE_SIZE, filtered.length);
+    const visible = filtered.slice(0, displayedCount);
+
+    if (filtered.length === 0) {
+      noteList.innerHTML = '<div class="empty-state"><div class="icon">📭</div>Nenhuma anotação encontrada.</div>';
+      loadMore.style.display = 'none';
+      return;
+    }
+
+    noteList.innerHTML = visible.map(n => noteCard(n)).join('');
+
+    if (filtered.length > PAGE_SIZE) {
+      loadMore.style.display = 'block';
+      btnLoad.textContent = `Ver mais (${filtered.length - displayedCount} restantes)`;
+      btnLoad.onclick = () => {
+        displayedCount = Math.min(displayedCount + PAGE_SIZE, filtered.length);
+        const more = filtered.slice(0, displayedCount);
+        noteList.innerHTML = more.map(n => noteCard(n)).join('');
+        if (displayedCount >= filtered.length) loadMore.style.display = 'none';
+        else btnLoad.textContent = `Ver mais (${filtered.length - displayedCount} restantes)`;
+      };
+    } else {
+      loadMore.style.display = 'none';
+    }
+  }
+
+  function noteCard(n) {
+    const isGerais = GERAIS.includes(n.materia_anl);
+    const moduloTag = isGerais
+      ? '<span class="modulo-tag gerais">Gerais</span>'
+      : '<span class="modulo-tag especif">Específicos</span>';
+
+    const refTag = n.ref_anl
+      ? `<span class="note-ref">🔖 ${esc(n.ref_anl)}</span>`
+      : '';
+
+    return `
+      <div class="note-item">
+        <span class="note-id">#${n.id}</span>
+        <div class="note-meta">
+          ${moduloTag}
+          <span class="note-materia">${esc(n.materia_anl || '—')}</span>
+          <span class="note-assunto">${esc(n.assunto_anl || '—')}</span>
+          ${refTag}
+        </div>
+        <div class="note-body">${esc(n.topicos_anl || '')}</div>
+      </div>`;
+  }
+
+  function esc(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  // Filtros
+  fltMateria.addEventListener('change', renderNotes);
+  fltRef.addEventListener('change', renderNotes);
+  btnRefresh.addEventListener('click', loadNotes);
+
+  // ══════════════════════════════════════════════
+  //  INIT
+  // ══════════════════════════════════════════════
+  loadNotes();
+</script>
+</body>
+</html>
