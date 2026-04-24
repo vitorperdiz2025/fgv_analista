@@ -586,6 +586,43 @@
       padding: .85rem;
       border-top: 1px solid var(--border);
     }
+
+    /* ── BADGES DE ANOTAÇÃO NOS TÓPICOS ── */
+    /* quadrado por assunto (dentro do tópico expandido) */
+    .topic-anot-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      background: var(--accent);
+      color: var(--navy);
+      font-size: .62rem;
+      font-weight: 800;
+      border-radius: 3px;
+      margin-left: .5rem;
+      vertical-align: middle;
+      line-height: 1;
+      flex-shrink: 0;
+      cursor: default;
+    }
+    /* indicador por matéria no cabeçalho da disciplina */
+    .disc-anot-count {
+      display: inline-flex;
+      align-items: center;
+      gap: .22rem;
+      font-size: .68rem;
+      font-weight: 700;
+      color: #a06010;
+      background: rgba(232,160,32,.13);
+      border: 1px solid rgba(232,160,32,.35);
+      padding: .08rem .38rem;
+      border-radius: 4px;
+      margin-left: .5rem;
+      vertical-align: middle;
+      cursor: default;
+    }
     .anot-btn-load {
       font-family: inherit;
       font-size: .79rem;
@@ -1613,9 +1650,68 @@
       anotAllNotes = await res.json();
       anotUpdateFilters();
       anotRender();
+      anotUpdateTopicBadges();
     } catch (err) {
       anotNoteList.innerHTML = '<div class="anot-empty">⚠️ Erro ao carregar: ' + anotEsc(err.message) + '</div>';
     }
+  }
+
+  // ── Badges de anotação nos tópicos do dashboard ──
+  function anotUpdateTopicBadges() {
+    // Contagens por assunto e por matéria
+    const byAssunto = new Map();
+    const byMateria = new Map();
+    anotAllNotes.forEach(n => {
+      if (n.assunto_anl) byAssunto.set(n.assunto_anl.trim(), (byAssunto.get(n.assunto_anl.trim()) || 0) + 1);
+      if (n.materia_anl) byMateria.set(n.materia_anl.trim(), (byMateria.get(n.materia_anl.trim()) || 0) + 1);
+    });
+
+    // Remove badges anteriores
+    document.querySelectorAll('.topic-anot-badge, .disc-anot-count').forEach(b => b.remove());
+
+    // 1. Quadrados por assunto dentro dos tópicos expandidos (ul > li)
+    document.querySelectorAll('.topics-detail ul li').forEach(li => {
+      const txt = li.textContent.trim();
+      const n = byAssunto.get(txt);
+      if (n) {
+        const badge = document.createElement('span');
+        badge.className = 'topic-anot-badge';
+        badge.textContent = n;
+        badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' para este tópico';
+        li.appendChild(badge);
+      }
+    });
+
+    // 2. Quadrados nos cabeçalhos de subtópico (Informática)
+    document.querySelectorAll('.subtopic-hdr').forEach(hdr => {
+      // Extrai apenas os nós de texto (ignora o <span> de contagem de questões)
+      const txt = [...hdr.childNodes]
+        .filter(nd => nd.nodeType === Node.TEXT_NODE)
+        .map(nd => nd.textContent.trim())
+        .join(' ').trim();
+      const n = byAssunto.get(txt);
+      if (n) {
+        const badge = document.createElement('span');
+        badge.className = 'topic-anot-badge';
+        badge.textContent = n;
+        badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' para este tópico';
+        const spanQ = hdr.querySelector('span');
+        spanQ ? hdr.insertBefore(badge, spanQ) : hdr.appendChild(badge);
+      }
+    });
+
+    // 3. Contador por matéria no cabeçalho de cada disciplina (disc-name)
+    document.querySelectorAll('.disc-name').forEach(dn => {
+      const mat = dn.textContent.trim();
+      const n = byMateria.get(mat);
+      if (n) {
+        const badge = document.createElement('span');
+        badge.className = 'disc-anot-count';
+        badge.textContent = '✏️ ' + n;
+        badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' em ' + mat;
+        dn.appendChild(badge);
+      }
+    });
   }
 
   function anotUpdateFilters() {
