@@ -351,8 +351,32 @@
       box-shadow: 0 0 0 3px rgba(58,106,191,.1);
     }
     .anot-select:disabled { background: var(--light); color: var(--muted); cursor: not-allowed; }
-    .anot-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .anot-textarea { resize: vertical; min-height: 240px; line-height: 1.6; }
     .anot-hint { font-size: .72rem; color: var(--muted); margin-top: .18rem; }
+
+    /* editor toolbar */
+    .anot-toolbar {
+      display: flex;
+      gap: .3rem;
+      margin-bottom: .4rem;
+    }
+    .anot-tb-btn {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      padding: .2rem .58rem;
+      cursor: pointer;
+      line-height: 1.4;
+      transition: background .12s, border-color .12s;
+      user-select: none;
+    }
+    .anot-tb-btn:hover  { background: #dce8ff; border-color: var(--mid); }
+    .anot-tb-btn.active { background: #dce8ff; border-color: var(--mid); }
+    .anot-tb-btn.italic { font-style: italic; }
 
     /* ref auto badge */
     .anot-ref-box {
@@ -492,6 +516,23 @@
     .anot-note-item:last-child { border-bottom: none; }
     .anot-note-item:hover { background: #f7f9ff; }
 
+    /* delete button */
+    .anot-del-btn {
+      font-size: .7rem;
+      color: #b0b8cc;
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      padding: .18rem .42rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color .12s, border-color .12s, background .12s;
+      white-space: nowrap;
+      align-self: start;
+      margin-top: .1rem;
+    }
+    .anot-del-btn:hover { color: var(--red); border-color: #f5c6c6; background: #fff5f5; }
+
     .anot-note-meta {
       display: flex;
       align-items: center;
@@ -521,11 +562,17 @@
       white-space: pre-wrap;
       line-height: 1.6;
     }
+    .anot-note-body strong { font-weight: 700; }
+    .anot-note-body em     { font-style: italic; }
+    .anot-note-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: .4rem;
+    }
     .anot-note-id {
       font-size: .64rem;
       color: #ccc;
-      align-self: start;
-      padding-top: .15rem;
       white-space: nowrap;
     }
     .anot-empty {
@@ -1209,8 +1256,13 @@
 
           <div class="anot-group full">
             <label class="anot-label" for="anot-topico">Anotação</label>
+            <div class="anot-toolbar">
+              <button type="button" class="anot-tb-btn" id="tb-bold" title="Negrito (Ctrl+B)"><b>B</b></button>
+              <button type="button" class="anot-tb-btn italic" id="tb-italic" title="Itálico (Ctrl+I)"><i>I</i></button>
+            </div>
             <textarea class="anot-textarea" id="anot-topico" required
-              placeholder="Digite sua anotação, conceito, esquema ou resumo…"></textarea>
+              placeholder="Digite sua anotação, conceito, esquema ou resumo…"
+              spellcheck="true"></textarea>
             <p class="anot-hint">Você pode adicionar quantas anotações quiser, uma por vez. O texto é limpo após salvar.</p>
           </div>
 
@@ -1617,7 +1669,9 @@
       : '<span class="anot-tag especif">Específicos</span>';
     const refTag = n.ref_anl
       ? '<span class="anot-tag ref">' + anotEsc(n.ref_anl) + '</span>' : '';
-    return `<div class="anot-note-item">
+    // Render bold (**text**) and italic (*text*) stored as HTML tags
+    const bodyHtml = anotRenderFmt(n.topicos_anl || '');
+    return `<div class="anot-note-item" data-id="${n.id}">
       <div>
         <div class="anot-note-meta">
           ${modTag}
@@ -1625,15 +1679,74 @@
           <span class="anot-tag ass">${anotEsc(n.assunto_anl||'—')}</span>
           ${refTag}
         </div>
-        <div class="anot-note-body">${anotEsc(n.topicos_anl||'')}</div>
+        <div class="anot-note-body">${bodyHtml}</div>
       </div>
-      <div class="anot-note-id">#${n.id}</div>
+      <div class="anot-note-side">
+        <span class="anot-note-id">#${n.id}</span>
+        <button class="anot-del-btn" data-id="${n.id}" type="button" title="Excluir anotação">✕ excluir</button>
+      </div>
     </div>`;
+  }
+
+  // Render **bold** and *italic* markers stored in text
+  function anotRenderFmt(raw) {
+    return anotEsc(raw)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
   }
 
   function anotEsc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
+
+  // ── Excluir nota ──
+  anotNoteList.addEventListener('click', async e => {
+    const btn = e.target.closest('.anot-del-btn');
+    if (!btn) return;
+    const id = btn.getAttribute('data-id');
+    if (!confirm(`Excluir anotação #${id}? Esta ação não pode ser desfeita.`)) return;
+
+    btn.disabled = true;
+    btn.textContent = '…';
+    try {
+      const res = await fetch(SUPA_URL + '?id=eq.' + id, {
+        method: 'DELETE',
+        headers: SUPA_HDR,
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      anotShowToast('🗑️ Anotação excluída', 'ok');
+      await anotLoadNotes();
+    } catch (err) {
+      anotShowToast('❌ Erro ao excluir: ' + err.message, 'err');
+      btn.disabled = false;
+      btn.textContent = '✕ excluir';
+    }
+  });
+
+  // ── Toolbar negrito / itálico ──
+  function anotWrapSelection(before, after) {
+    const ta = anotTopico;
+    const start = ta.selectionStart;
+    const end   = ta.selectionEnd;
+    const sel   = ta.value.slice(start, end);
+    const replacement = before + (sel || 'texto') + after;
+    ta.setRangeText(replacement, start, end, 'select');
+    ta.focus();
+    // Reposition cursor inside markers if nothing was selected
+    if (!sel) {
+      ta.selectionStart = start + before.length;
+      ta.selectionEnd   = start + before.length + (after === before ? 5 : 5);
+    }
+  }
+
+  document.getElementById('tb-bold').addEventListener('click', () => anotWrapSelection('**', '**'));
+  document.getElementById('tb-italic').addEventListener('click', () => anotWrapSelection('*', '*'));
+
+  // Ctrl+B / Ctrl+I atalhos dentro do textarea
+  anotTopico.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'b') { e.preventDefault(); anotWrapSelection('**', '**'); }
+    if ((e.ctrlKey || e.metaKey) && e.key === 'i') { e.preventDefault(); anotWrapSelection('*', '*'); }
+  });
 
   anotFltMat.addEventListener('change', anotRender);
   anotFltRef.addEventListener('change', anotRender);
