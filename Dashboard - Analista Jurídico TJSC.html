@@ -1573,6 +1573,62 @@
     'Direitos Humanos e Acesso à Justiça',
   ];
 
+  /* ── Paleta de cores por matéria ─────────────────────────────────────────
+     Cada matéria tem uma cor principal (mat) e uma cor derivada clara (ass).
+     matBg/matText → badge da matéria  |  assBg/assText → badge do assunto  */
+  const MATERIA_COLORS = {
+    /* ── GERAIS ─────────────────────────────────────────────────────── */
+    'Língua Portuguesa': {
+      matBg:'#6D28D9', matText:'#fff',
+      assBg:'#EDE9FE', assText:'#4C1D95',
+    },
+    'Legislação Institucional do PJSC': {
+      matBg:'#1D4ED8', matText:'#fff',
+      assBg:'#DBEAFE', assText:'#1E3A8A',
+    },
+    'Ética e Gestão no Serviço Público': {
+      matBg:'#065F46', matText:'#fff',
+      assBg:'#D1FAE5', assText:'#064E3B',
+    },
+    'Noções de Informática e Proteção de Dados': {
+      matBg:'#0369A1', matText:'#fff',
+      assBg:'#E0F2FE', assText:'#0C4A6E',
+    },
+    /* ── ESPECÍFICOS ─────────────────────────────────────────────────── */
+    'Direitos Humanos e Acesso à Justiça': {
+      matBg:'#BE123C', matText:'#fff',
+      assBg:'#FFE4E6', assText:'#9F1239',
+    },
+    'Direito Constitucional': {
+      matBg:'#166534', matText:'#fff',
+      assBg:'#DCFCE7', assText:'#14532D',
+    },
+    'Direito Administrativo': {
+      matBg:'#92400E', matText:'#fff',
+      assBg:'#FEF3C7', assText:'#78350F',
+    },
+    'Direito Civil e Direito do Consumidor': {
+      matBg:'#3730A3', matText:'#fff',
+      assBg:'#E0E7FF', assText:'#312E81',
+    },
+    'Direito Processual Civil': {
+      matBg:'#7E22CE', matText:'#fff',
+      assBg:'#F3E8FF', assText:'#581C87',
+    },
+    'Direito Penal': {
+      matBg:'#B91C1C', matText:'#fff',
+      assBg:'#FEE2E2', assText:'#991B1B',
+    },
+    'Direito Processual Penal': {
+      matBg:'#9D174D', matText:'#fff',
+      assBg:'#FCE7F3', assText:'#831843',
+    },
+    'Direitos Humanos e Tutela Coletiva': {
+      matBg:'#0F766E', matText:'#fff',
+      assBg:'#CCFBF1', assText:'#115E59',
+    },
+  };
+
   // ── Elementos ──
   const anotSelMat  = document.getElementById('anot-sel-mat');
   const anotSelAss  = document.getElementById('anot-sel-ass');
@@ -1720,15 +1776,26 @@
     // Remove badges anteriores
     document.querySelectorAll('.topic-anot-badge, .disc-anot-count').forEach(b => b.remove());
 
+    // Helper: pega paleta da matéria mais próxima de um elemento
+    function palFromEl(el) {
+      const row = el.closest('.disc-row');
+      const mat = row ? row.querySelector('.disc-name')?.textContent.trim() : null;
+      return (mat && MATERIA_COLORS[mat]) ? MATERIA_COLORS[mat]
+        : { matBg: '#FFCD71', matText: '#734A00', assBg: '#FFF7E8', assText: '#734A00' };
+    }
+
     // 1. Quadrados por assunto dentro dos tópicos expandidos (ul > li)
     document.querySelectorAll('.topics-detail ul li').forEach(li => {
       const txt = li.textContent.trim();
       const n = byAssunto.get(txt);
       if (n) {
+        const pal = palFromEl(li);
         const badge = document.createElement('span');
         badge.className = 'topic-anot-badge';
         badge.textContent = n;
         badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' para este tópico';
+        badge.style.background = pal.matBg;
+        badge.style.color = pal.matText;
         li.appendChild(badge);
       }
     });
@@ -1742,10 +1809,13 @@
         .join(' ').trim();
       const n = byAssunto.get(txt);
       if (n) {
+        const pal = palFromEl(hdr);
         const badge = document.createElement('span');
         badge.className = 'topic-anot-badge';
         badge.textContent = n;
         badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' para este tópico';
+        badge.style.background = pal.matBg;
+        badge.style.color = pal.matText;
         const spanQ = hdr.querySelector('span');
         spanQ ? hdr.insertBefore(badge, spanQ) : hdr.appendChild(badge);
       }
@@ -1756,10 +1826,14 @@
       const mat = dn.textContent.trim();
       const n = byMateria.get(mat);
       if (n) {
+        const pal = MATERIA_COLORS[mat] || { matBg: '#FFCD71', matText: '#734A00' };
         const badge = document.createElement('span');
         badge.className = 'disc-anot-count';
         badge.textContent = '✏️ ' + n;
         badge.title = n + ' anotaç' + (n > 1 ? 'ões' : 'ão') + ' em ' + mat;
+        badge.style.background = pal.matBg + '22'; // 13% alpha do bg da matéria
+        badge.style.color = pal.matBg;              // text na cor principal
+        badge.style.borderColor = pal.matBg + '55'; // 33% alpha para borda
         dn.appendChild(badge);
       }
     });
@@ -1816,14 +1890,23 @@
       : '<span class="anot-tag especif">Específicos</span>';
     const refTag = n.ref_anl
       ? '<span class="anot-tag ref">' + anotEsc(n.ref_anl) + '</span>' : '';
+
+    // Cores da matéria (usa paleta definida; fallback para padrão)
+    const pal = MATERIA_COLORS[n.materia_anl] || {
+      matBg:'#131313', matText:'#fff',
+      assBg:'#FFF7E8', assText:'#734A00',
+    };
+    const matStyle = `background:${pal.matBg};color:${pal.matText};border:none;`;
+    const assStyle = `background:${pal.assBg};color:${pal.assText};border:1px solid ${pal.assBg === '#FFF7E8' ? '#FFE4A0' : pal.assBg};`;
+
     // Render bold (**text**) and italic (*text*) stored as HTML tags
     const bodyHtml = anotRenderFmt(n.topicos_anl || '');
     return `<div class="anot-note-item" data-id="${n.id}">
       <div>
         <div class="anot-note-meta">
           ${modTag}
-          <span class="anot-tag mat">${anotEsc(n.materia_anl||'—')}</span>
-          <span class="anot-tag ass">${anotEsc(n.assunto_anl||'—')}</span>
+          <span class="anot-tag mat" style="${matStyle}">${anotEsc(n.materia_anl||'—')}</span>
+          <span class="anot-tag ass" style="${assStyle}">${anotEsc(n.assunto_anl||'—')}</span>
           ${refTag}
         </div>
         <div class="anot-note-body">${bodyHtml}</div>
