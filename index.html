@@ -687,6 +687,21 @@
     }
     .anot-btn-load:hover { background: #FFE9B0; border-color: var(--mid-orange); }
 
+    /* ── BANCO DE QUESTÕES ── */
+    #qb-modulo .modulo-header { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; }
+    .qb-filter-btn { background:var(--off-white); border:1px solid var(--border); border-radius:1rem; padding:.3rem .85rem; font-size:.78rem; font-weight:500; cursor:pointer; transition:all .15s; font-family:inherit; color:var(--black); }
+    .qb-filter-btn.active { background:var(--black); color:#fff; border-color:var(--black); }
+    .qb-filter-btn:hover:not(.active) { background:#E5E5E2; }
+    #qb-list { display:flex; flex-direction:column; gap:.85rem; padding:.25rem 0; }
+    .qb-card { background:#fff; border:1px solid var(--border); border-radius:.75rem; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:.45rem; }
+    .qb-num { font-size:.7rem; font-weight:700; color:var(--mid-gray); text-transform:uppercase; letter-spacing:.05em; }
+    .qb-meta { font-size:.82rem; font-weight:700; color:var(--black); }
+    .qb-inst { font-size:.8rem; color:var(--mid-gray); font-style:italic; }
+    .qb-stmt { font-size:.9rem; color:var(--black); line-height:1.55; }
+    .qb-gab { display:inline-block; padding:.2rem .8rem; border-radius:1rem; font-size:.78rem; font-weight:700; width:fit-content; margin-top:.1rem; }
+    .qb-gab-c { background:#DCFCE7; color:#166534; }
+    .qb-gab-e { background:#FEE2E2; color:#991B1B; }
+
     @media (max-width: 600px) {
       header { padding: 1.2rem 1rem; flex-wrap: wrap; }
       .badge { margin-left: 0; }
@@ -775,134 +790,16 @@
       <div class="disc-main">
         <div class="disc-name">Legislação Institucional do PJSC</div>
         <div class="disc-topics">Estrutura do Poder Judiciário SC · Organização judiciária · TJSC · Corregedoria · Regime jurídico dos servidores · Lei 5.624/1979 · Lei 6.745/1985 · LC 639/2015</div>
-        <button class="expand-btn">▸ Ver questões por tópico (105 questões TJ SC 2024)</button>
+        <button class="expand-btn">▸ Ver tópicos detalhados</button>
         <div class="topics-detail">
-
-          <!-- Lei 5.624/1979 -->
-          <div class="subtopic-block">
-            <div class="subtopic-hdr">Lei Estadual nº 5.624/1979 — Código de Divisão e Organização Judiciárias (SC) <span>45 questões</span></div>
-            <button class="subsec-btn" data-target="leg-5624">▸ Questões Q96–Q140 (TJ SC 2024)</button>
-            <div class="questions-section" id="leg-5624" style="display:none">
-              <ul class="q-list">
-                <li><span class="q-n">Q96</span><span class="q-desc">Receita tributária na classificação de comarca: totalidade dos tributos, exceto transferências e cotas de participação (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q97</span><span class="q-desc">Índices mínimos das entrâncias podem ser reduzidos até a metade em Município com precários meios de comunicação (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q98</span><span class="q-desc">Instalação de comarca: indispensável fórum convenientemente mobiliado e cadeia com higiene e segurança (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q99</span><span class="q-desc">Instalação da comarca dependerá da aprovação do Presidente do TJ (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q100</span><span class="q-desc">Em cada distrito ou subdistrito haverá um juiz de paz e dois suplentes (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q101</span><span class="q-desc">O Tribunal de Justiça, órgão supremo do Poder Judiciário do Estado, compõe-se de 50 desembargadores (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q102</span><span class="q-desc">Promoção por antiguidade: indicação do juiz mais antigo, não recusado por 2/3 do Órgão Especial (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q103</span><span class="q-desc">Promoção por merecimento: lista tríplice, obedecida a quinta parte da lista de antiguidade (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q104</span><span class="q-desc">Ouvir Corregedor Geral no prazo de três dias antes da indicação por antiguidade ou lista tríplice (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q105</span><span class="q-desc">Um quinto: membros do MP com mais de quinze anos e advogados com mais de dez anos, lista tríplice (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q106</span><span class="q-desc">Desembargador que deixar cargo de Presidente retomará assento na Câmara de que fazia parte (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q107</span><span class="q-desc">Juízes substitutos adquirem vitaliciedade após três anos de exercício no cargo (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q108</span><span class="q-desc">Juiz de paz nomeado pelo Governador pelo prazo de quatro anos, vedada a recondução (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q109</span><span class="q-desc">Idade mínima para provimento no cargo de juiz de paz: 21 anos (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q110</span><span class="q-desc">Mudança de domicílio é motivo para a perda do cargo do juiz de paz (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q111</span><span class="q-desc">Serventuários auxiliares da Justiça: escrivães, tabeliães e oficiais de registro público (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q112</span><span class="q-desc">Tradutores públicos e intérpretes também são auxiliares da Justiça (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q113</span><span class="q-desc">Direção do Foro exercida pelo magistrado mais antigo que aceite a indicação, mandato de 02 anos (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q114</span><span class="q-desc">Juiz substituto vitalício: substituir juízes de direito nas faltas, impedimentos, suspeições e vacância (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q115</span><span class="q-desc">Tribunal do Júri: competência para crimes dolosos contra a vida, desde que consumados (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q116</span><span class="q-desc">Autoridade policial em comarca composta pode ordenar diligências nos demais municípios sem precatórias (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q117</span><span class="q-desc">Escrivães de paz não exercem atribuições coincidentes com os escrivães em geral (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q118</span><span class="q-desc">Tabelião pode se deslocar do território de sua jurisdição para praticar atos de sua competência (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q119</span><span class="q-desc">Depositários: proibido usar ou emprestar a coisa; entrega somente mediante mandado do juiz (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q120</span><span class="q-desc">Para tomar posse, magistrado não poderá estar em mora com a Fazenda Estadual (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q121</span><span class="q-desc">Posse de magistrado deve preceder o compromisso, que só poderá ser prestado de forma personalíssima (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q122</span><span class="q-desc">Direitos do promovido ou removido começam da publicação do respectivo ato (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q123</span><span class="q-desc">Prazo para o magistrado entrar em exercício: 30 dias, improrrogáveis (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q124</span><span class="q-desc">Juiz de direito só pode ser removido a pedido, por promoção, permuta ou por 2/3 do Tribunal (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q125</span><span class="q-desc">Ao provimento inicial e promoções precederá sempre a remoção; opção de outros juízes em cinco dias (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q126</span><span class="q-desc">Preenchimento de vaga por promoção: antiguidade e merecimento, alternadamente; lista tríplice (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q127</span><span class="q-desc">Presidente publica edital e telegrafará aos juízes: prazo de dez dias para requerimentos de promoção (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q128</span><span class="q-desc">Mesmo tempo de serviço: prevalece a idade, antiguidade no serviço público, antiguidade na magistratura (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q129</span><span class="q-desc">Criação de varas: juiz tem 5 dias após publicação para optar pela nova vara (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q130</span><span class="q-desc">A promoção ou remoção interrompe o gozo de férias (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q131</span><span class="q-desc">Durante as férias, magistrado terá direito a todas as vantagens como se estivesse em exercício (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q132</span><span class="q-desc">Contagem de antiguidade para fins de promoção: tempo de serviço que figurar na matrícula (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q133</span><span class="q-desc">Todo mês de janeiro, o Corregedor-Geral mandará reorganizar os quadros de antiguidade (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q134</span><span class="q-desc">Tempo de licença remunerada e férias não serão computados para efeitos de antiguidade na entrância (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q135</span><span class="q-desc">Não poderão ser juízes no mesmo feito cônjuges e parentes até o quarto grau (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q136</span><span class="q-desc">É vedado aos juízes exercer atividade político-partidária (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q137</span><span class="q-desc">A atividade de Diretor do Foro não é remunerada (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q138</span><span class="q-desc">Juízes substitutos: ajuda de custo de um mês de remuneração após o compromisso, com direito a transporte (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q139</span><span class="q-desc">Aposentadoria compulsória aos 70 anos; facultativa aos 30 anos de serviço com 5 anos na Judicatura (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q140</span><span class="q-desc">Reversão de aposentadoria é permitida a qualquer tempo, desde que insubsistentes os motivos (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Regimento Interno TJSC -->
-          <div class="subtopic-block">
-            <div class="subtopic-hdr">Regimento Interno do TJSC <span>60 questões</span></div>
-            <button class="subsec-btn" data-target="leg-ritjsc">▸ Questões Q141–Q200 (TJ SC 2024)</button>
-            <div class="questions-section" id="leg-ritjsc" style="display:none">
-              <ul class="q-list">
-                <li><span class="q-n">Q141</span><span class="q-desc">Cargos de direção do TJSC eleitos por votação secreta, mandato de 2 anos, permitida uma recondução (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q142</span><span class="q-desc">Eleição em sessão pública com maioria dos membros; eleito quem obtiver maioria dos votos dos presentes (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q143</span><span class="q-desc">Presidente: responsável por conceder férias aos desembargadores, vedada a delegação (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q144</span><span class="q-desc">Presidente: expedir atos de promoção, remoção, opção, permuta, aposentadoria e movimentação na carreira (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q145</span><span class="q-desc">1º vice-presidente: competência para responder pelo Núcleo de Gerenciamento de Precedentes e Ações Coletivas (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q146</span><span class="q-desc">Corregedoria-Geral: corregedor judicial e corregedor extrajudicial, ambos auxiliados por juízes corregedores (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q147</span><span class="q-desc">Mais de um desembargador disputando a mesma vaga em câmara: preferência do mais velho (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q148</span><span class="q-desc">Desembargador a menos de 3 meses da aposentadoria compulsória não tem pedido de opção ou permuta deferido (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q149</span><span class="q-desc">Mudança de vaga permanecendo no mesmo grupo de câmaras: desembargador mantém o acervo do órgão (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q150</span><span class="q-desc">Remoção por merecimento: interstício mínimo de 3 anos, primeira quinta parte da lista de antiguidade (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q151</span><span class="q-desc">Durante substituição, juízes de direito de segundo grau têm as mesmas competências do titular (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q152</span><span class="q-desc">Afastamento superior a 30 dias: sistema de rodízio na substituição, períodos alternados de no máximo 30 dias (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q153</span><span class="q-desc">Sem transferência do acervo ao substituto, salvo tutelas de urgência, feitos prioritários e vacância (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q154</span><span class="q-desc">Juízes de segundo grau podem ser designados para cooperar com desembargadores de grandes acervos ou sob inspeção do CNJ (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q155</span><span class="q-desc">Desembargadores cônjuges não poderão atuar juntos no Tribunal Pleno e no Órgão Especial (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q156</span><span class="q-desc">Afastamento superior a 6 meses em 2 anos: nova licença para saúde exige exame de verificação de invalidez (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q157</span><span class="q-desc">Aposentadoria compulsória por implemento de idade necessita de inspeção de saúde (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q158</span><span class="q-desc">Lista tríplice para quinto constitucional do TJSC: formada pelo Tribunal Pleno (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q159</span><span class="q-desc">Empate na votação para o Órgão Especial: preferência ao candidato de mais idade (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q160</span><span class="q-desc">Membros do Órgão Especial: mandatos de 2 anos, permitida uma reeleição (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q161</span><span class="q-desc">Órgão Especial processa e julga originariamente vice-governador, deputados estaduais e procurador-geral (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q162</span><span class="q-desc">Grupo de Câmaras de Direito Público: MS, mandado de injunção e habeas data contra ato de deputado estadual (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q163</span><span class="q-desc">As câmaras especiais foram extintas, não compondo mais o rol de câmaras do TJSC (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q164</span><span class="q-desc">Câmaras de direito público: 4 desembargadores, atuando 3 nos julgamentos colegiados (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q165</span><span class="q-desc">Câmaras de direito público: MS contra ato ou omissão de secretário de Estado ou equiparado (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q166</span><span class="q-desc">Câmaras criminais: HC quando autoridade coatora ou paciente for deputado estadual, secretário, juiz ou MP (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q167</span><span class="q-desc">Câmara de Recursos Delegados: julga conflitos de competência entre câmaras de áreas distintas (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q168</span><span class="q-desc">Conselho da Magistratura: função regulamentadora e disciplinar judicial, sem atribuição extrajudicial (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q169</span><span class="q-desc">Presidente de comissão tem voto de desempate; deliberações submetidas ao Pleno ou ao Órgão Especial (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q170</span><span class="q-desc">Comissão Permanente de Divisão e Organização Judiciárias presidida pelo Presidente do TJSC (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q171</span><span class="q-desc">Órgão Especial pode instituir comissões temporárias por proposta da maioria absoluta de seus membros (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q172</span><span class="q-desc">Núcleo de Gerenciamento de Precedentes: uniformizar procedimentos de processos sobrestados por precedentes (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q173</span><span class="q-desc">Habeas corpus, mandado de segurança e habeas data: processos urgentes para fins de distribuição (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q174</span><span class="q-desc">Órgão Especial pode editar ato regimental transitório para critérios de distribuição em demandas repetitivas (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q175</span><span class="q-desc">Decisão que declarar prejudicado o pedido não firmará prevenção (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q176</span><span class="q-desc">Desembargador aposentando: processos distribuídos até 10 dias antes da aposentadoria (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q177</span><span class="q-desc">Data de publicação: primeiro dia seguinte ao da disponibilização no Diário de Justiça Eletrônico (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q178</span><span class="q-desc">Relator pode indeferir liminarmente MS; aplica-se ao habeas data e mandado de injunção (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q179</span><span class="q-desc">Nos processos criminais, revisor é o desembargador seguinte ao relator na ordem decrescente de antiguidade (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q180</span><span class="q-desc">Todos os processos jurisdicionais e administrativos podem, a critério do relator, ser julgados em sessão virtual (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q181</span><span class="q-desc">Objeção à forma virtual por qualquer das partes ou MP: processo retirado da pauta virtual (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q182</span><span class="q-desc">Tribunal Pleno e Órgão Especial reúnem-se com presença mínima da maioria absoluta de seus membros (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q183</span><span class="q-desc">Seção Criminal reúne-se com presença mínima da maioria de seus membros (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q184</span><span class="q-desc">No Órgão Especial, a pauta com prioridade máxima é o mandado de segurança (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q185</span><span class="q-desc">O habeas corpus independerá de inclusão em pauta de julgamento (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q186</span><span class="q-desc">Sessões do Órgão Especial: deliberações de natureza judicial precedem às de natureza administrativa (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q187</span><span class="q-desc">Julgamentos sem prioridade realizados, preferencialmente, segundo a ordem de antiguidade dos feitos em cada classe (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q188</span><span class="q-desc">Sem sustentação oral: conflito de competência, embargos declaratórios, suspeição, impedimento, incompetência e admissibilidade do IRDR (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q189</span><span class="q-desc">Em matéria criminal, empate na votação: prevalece a decisão mais favorável ao paciente ou réu (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q190</span><span class="q-desc">Reclamação para garantir observância de acórdão proferido em IRDR ou incidente de assunção de competência (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q191</span><span class="q-desc">Relator pode indeferir liminarmente a reclamação inepta ou incabível; cabe agravo interno ao órgão competente (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q192</span><span class="q-desc">Correição parcial no processo penal: prazo de 10 dias para interessados ou MP (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q193</span><span class="q-desc">Controle difuso de constitucionalidade: relator ouve MP e partes no prazo sucessivo de 10 dias (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q194</span><span class="q-desc">HC não será conhecido quando se tratar de reiteração ou cessar o constrangimento ilegal (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q195</span><span class="q-desc">Desembargador suspeito devolve autos para nova distribuição por sorteio entre desembargadores competentes (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q196</span><span class="q-desc">IRDR suscitado pelas partes: relator é o mesmo do processo principal, salvo se não integrar o órgão competente (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q197</span><span class="q-desc">Agravo interno contra decisão do relator que não conhecer de agravo de instrumento: julgado pela câmara do relator (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q198</span><span class="q-desc">Embargos infringentes e de nulidade: distribuídos a novo relator, necessariamente diferente do anterior (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-                <li><span class="q-n">Q199</span><span class="q-desc">Exame de cabimento do pedido de intervenção estadual compete ao Órgão Especial (TJ SC 2024)</span><span class="q-gab">Gab: C</span></li>
-                <li><span class="q-n">Q200</span><span class="q-desc">Direção dos periódicos exercida pelo Presidente do TJSC, podendo delegar a desembargador da Comissão de Jurisprudência (TJ SC 2024)</span><span class="q-gab">Gab: E</span></li>
-              </ul>
-            </div>
-          </div>
-
+          <ul>
+            <li>Estrutura, competências e funcionamento do Poder Judiciário estadual</li>
+            <li>Organização judiciária: divisão, composição, órgãos jurisdicionais e administrativos</li>
+            <li>Regimento Interno do TJSC: organização, competências e funcionamento</li>
+            <li>Código de Normas da Corregedoria-Geral da Justiça</li>
+            <li>Regime jurídico e disciplinar dos servidores</li>
+            <li>Lei 5.624/1979 · Regimento Interno TJSC · Lei 6.745/1985 · LC 639/2015</li>
+          </ul>
         </div>
       </div>
       <div class="pill">
@@ -1396,6 +1293,25 @@
     <div class="prog-name">Direitos Humanos e Tutela Coletiva</div>
     <div class="prog-bar-bg"><div class="prog-bar-fill especif" style="width:40%"></div></div>
     <div class="prog-pct">4 q</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ BANCO DE QUESTÕES ═══════════════════ -->
+<div class="section-label" style="padding-top:1.25rem">
+  <h2>📚 Banco de Questões</h2>
+</div>
+<div class="modulo" id="qb-modulo">
+  <div class="modulo-header">
+    <h3>🏛️ Legislação Institucional — TJ SC 2024</h3>
+    <span class="total-badge">105 questões</span>
+    <div id="qb-filters" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-left:auto">
+      <button class="qb-filter-btn active" data-grupo="all">Todas (105)</button>
+      <button class="qb-filter-btn" data-grupo="lei5624">Lei 5.624/1979 (45)</button>
+      <button class="qb-filter-btn" data-grupo="ritjsc">Regimento Interno (60)</button>
+    </div>
+  </div>
+  <div class="disc-table" style="padding:.75rem 1.25rem 1.25rem">
+    <div id="qb-list"><!-- renderizado por JS --></div>
   </div>
 </div>
 
@@ -2102,6 +2018,351 @@
 
   // Init
   anotLoadNotes();
+
+  // ── BANCO DE QUESTÕES ──────────────────────────────────────────────
+  const QUESTOES_BANCO = [
+    // ── Lei 5.624/1979 ──────────────────────────────────────────────
+    { n:'Q96',  grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Classificação e Instalação de Comarcas',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A receita tributária utilizada na classificação de comarca abrange a totalidade dos tributos, exceto as transferências e as cotas de participação.', gab:'E' },
+    { n:'Q97',  grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Classificação e Instalação de Comarcas',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os índices mínimos das entrâncias podem ser reduzidos até a metade em Município com precários meios de comunicação.', gab:'C' },
+    { n:'Q98',  grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Classificação e Instalação de Comarcas',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Para a instalação de comarca é indispensável que haja fórum convenientemente mobiliado e cadeia com condições de higiene e segurança.', gab:'C' },
+    { n:'Q99',  grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Classificação e Instalação de Comarcas',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A instalação da comarca dependerá da aprovação do Presidente do Tribunal de Justiça.', gab:'E' },
+    { n:'Q100', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Classificação e Instalação de Comarcas',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Em cada distrito ou subdistrito haverá um juiz de paz e dois suplentes.', gab:'C' },
+    { n:'Q101', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O Tribunal de Justiça, órgão supremo do Poder Judiciário do Estado, compõe-se de 50 desembargadores.', gab:'C' },
+    { n:'Q102', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Na promoção por antiguidade, será indicado o juiz mais antigo, salvo recusa por dois terços dos membros do Órgão Especial.', gab:'C' },
+    { n:'Q103', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Na promoção por merecimento, a lista tríplice obedecerá à quinta parte da lista de antiguidade.', gab:'E' },
+    { n:'Q104', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Antes da indicação por antiguidade ou lista tríplice, o Corregedor-Geral deverá ser ouvido no prazo de três dias.', gab:'C' },
+    { n:'Q105', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O quinto constitucional é composto por membros do Ministério Público com mais de quinze anos de carreira e advogados com mais de dez anos de efetiva atividade, indicados em lista tríplice.', gab:'E' },
+    { n:'Q106', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Composição do TJSC',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O desembargador que deixar o cargo de Presidente retomará assento na Câmara de que fazia parte.', gab:'E' },
+    { n:'Q107', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os juízes substitutos adquirem vitaliciedade após três anos de exercício no cargo.', gab:'E' },
+    { n:'Q108', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O juiz de paz é nomeado pelo Governador pelo prazo de quatro anos, sendo vedada a recondução.', gab:'E' },
+    { n:'Q109', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A idade mínima para provimento no cargo de juiz de paz é de 21 anos.', gab:'C' },
+    { n:'Q110', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A mudança de domicílio é motivo para a perda do cargo do juiz de paz.', gab:'C' },
+    { n:'Q111', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'São auxiliares da Justiça os serventuários, incluindo escrivães, tabeliães e oficiais de registro público.', gab:'C' },
+    { n:'Q112', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os tradutores públicos e intérpretes também são considerados auxiliares da Justiça.', gab:'C' },
+    { n:'Q113', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Auxiliares e Serventuários da Justiça',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A direção do foro é exercida pelo magistrado mais antigo que aceite a indicação, com mandato de dois anos.', gab:'E' },
+    { n:'Q114', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Cabe ao juiz substituto vitalício substituir os juízes de direito nas faltas, impedimentos, suspeições e vacância de cargo.', gab:'C' },
+    { n:'Q115', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O Tribunal do Júri tem competência para julgar crimes dolosos contra a vida, desde que consumados.', gab:'E' },
+    { n:'Q116', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A autoridade policial em comarca composta pode ordenar diligências nos demais municípios que a integram, sem necessidade de precatórias.', gab:'C' },
+    { n:'Q117', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os escrivães de paz não exercem atribuições coincidentes com os escrivães em geral.', gab:'E' },
+    { n:'Q118', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O tabelião pode se deslocar do território de sua jurisdição para praticar atos de sua competência.', gab:'E' },
+    { n:'Q119', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os depositários estão proibidos de usar ou emprestar o bem depositado, devendo entregá-lo somente mediante mandado do juiz.', gab:'C' },
+    { n:'Q120', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Competências Jurisdicionais',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Para tomar posse, o magistrado não poderá estar em situação de mora com a Fazenda Estadual.', gab:'C' },
+    { n:'Q121', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A posse do magistrado deve preceder o compromisso, que só poderá ser prestado de forma personalíssima.', gab:'E' },
+    { n:'Q122', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os direitos do magistrado promovido ou removido começam a partir da publicação do respectivo ato.', gab:'C' },
+    { n:'Q123', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O prazo para o magistrado entrar em exercício é de 30 dias, improrrogáveis.', gab:'E' },
+    { n:'Q124', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O juiz de direito somente pode ser removido a pedido, por promoção, permuta ou por deliberação de dois terços do Tribunal.', gab:'C' },
+    { n:'Q125', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Ao provimento inicial e às promoções sempre precederá a remoção, com opção de outros juízes no prazo de cinco dias.', gab:'C' },
+    { n:'Q126', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O preenchimento de vaga por promoção ocorre alternadamente por antiguidade e merecimento, com elaboração de lista tríplice.', gab:'C' },
+    { n:'Q127', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O Presidente publicará edital e comunicará aos juízes o prazo de dez dias para requerimentos de promoção.', gab:'C' },
+    { n:'Q128', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Provimento e Promoção',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Em caso de mesmo tempo de serviço, prevalece a idade, seguida da antiguidade no serviço público e, por último, da antiguidade na magistratura.', gab:'E' },
+    { n:'Q129', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Na criação de varas, o juiz tem 5 dias após a publicação do ato para optar pela nova vara.', gab:'E' },
+    { n:'Q130', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A promoção ou remoção interrompe o gozo de férias.', gab:'E' },
+    { n:'Q131', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Durante as férias, o magistrado terá direito a todas as vantagens como se estivesse em exercício.', gab:'C' },
+    { n:'Q132', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Para fins de promoção, a antiguidade é contada pelo tempo de serviço que figurar na matrícula.', gab:'C' },
+    { n:'Q133', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Todo mês de janeiro, o Corregedor-Geral mandará reorganizar os quadros de antiguidade.', gab:'E' },
+    { n:'Q134', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Remoção e Antiguidade',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'O tempo de licença remunerada e de férias não será computado para efeitos de antiguidade na entrância.', gab:'E' },
+    { n:'Q135', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Não poderão ser juízes no mesmo feito cônjuges e parentes até o quarto grau.', gab:'E' },
+    { n:'Q136', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'É vedado aos juízes exercer atividade político-partidária.', gab:'C' },
+    { n:'Q137', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A atividade de Diretor do Foro não é remunerada.', gab:'E' },
+    { n:'Q138', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'Os juízes substitutos fazem jus a ajuda de custo de um mês de remuneração após o compromisso, com direito a transporte.', gab:'E' },
+    { n:'Q139', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A aposentadoria compulsória ocorre aos 70 anos; a facultativa, aos 30 anos de serviço com pelo menos 5 anos na Judicatura.', gab:'C' },
+    { n:'Q140', grupo:'lei5624', lei:'Lei 5.624/1979', sub:'Regime Jurídico dos Magistrados',
+      inst:'Julgue o item a seguir com base na Lei Estadual nº 5.624/1979 (Código de Divisão e Organização Judiciárias de SC).',
+      stmt:'A reversão de aposentadoria é permitida a qualquer tempo, desde que insubsistentes os motivos que a determinaram.', gab:'E' },
+
+    // ── Regimento Interno TJSC ──────────────────────────────────────
+    { n:'Q141', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Os cargos de direção do TJSC são eleitos por votação secreta, com mandato de 2 anos, sendo permitida uma recondução.', gab:'E' },
+    { n:'Q142', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A eleição ocorre em sessão pública com a maioria dos membros, sendo eleito quem obtiver a maioria dos votos dos presentes.', gab:'C' },
+    { n:'Q143', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Presidente é responsável por conceder férias aos desembargadores, sendo vedada a delegação dessa atribuição.', gab:'E' },
+    { n:'Q144', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Compete ao Presidente expedir atos de promoção, remoção, opção, permuta, aposentadoria e movimentação na carreira.', gab:'C' },
+    { n:'Q145', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O 1º vice-presidente tem competência para responder pelo Núcleo de Gerenciamento de Precedentes e Ações Coletivas.', gab:'E' },
+    { n:'Q146', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A Corregedoria-Geral é composta por corregedor judicial e corregedor extrajudicial, ambos auxiliados por juízes corregedores.', gab:'C' },
+    { n:'Q147', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Cargos de Direção e Eleições',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Havendo mais de um desembargador disputando a mesma vaga em câmara, tem preferência o mais velho.', gab:'E' },
+    { n:'Q148', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O desembargador a menos de três meses da aposentadoria compulsória não terá pedido de opção ou permuta deferido.', gab:'C' },
+    { n:'Q149', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Na mudança de vaga permanecendo no mesmo grupo de câmaras, o desembargador mantém o acervo do órgão.', gab:'C' },
+    { n:'Q150', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A remoção por merecimento exige interstício mínimo de 3 anos, considerando a primeira quinta parte da lista de antiguidade.', gab:'E' },
+    { n:'Q151', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Durante a substituição, os juízes de direito de segundo grau têm as mesmas competências do titular.', gab:'E' },
+    { n:'Q152', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'No afastamento superior a 30 dias, adota-se sistema de rodízio na substituição, com períodos alternados de no máximo 30 dias.', gab:'C' },
+    { n:'Q153', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Não há transferência do acervo ao substituto, salvo nos casos de tutelas de urgência, feitos prioritários e vacância.', gab:'C' },
+    { n:'Q154', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Juízes de segundo grau podem ser designados para cooperar com desembargadores de grandes acervos ou sob inspeção do CNJ.', gab:'C' },
+    { n:'Q155', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Desembargadores cônjuges não poderão atuar juntos no Tribunal Pleno e no Órgão Especial.', gab:'E' },
+    { n:'Q156', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O afastamento superior a 6 meses em 2 anos exige, para nova licença de saúde, exame de verificação de invalidez.', gab:'C' },
+    { n:'Q157', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Composição e Substituição',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A aposentadoria compulsória por implemento de idade necessita de inspeção de saúde.', gab:'E' },
+    { n:'Q158', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Órgão Especial',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A lista tríplice para o quinto constitucional do TJSC é formada pelo Tribunal Pleno.', gab:'C' },
+    { n:'Q159', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Órgão Especial',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Em caso de empate na votação para o Órgão Especial, há preferência ao candidato de mais idade.', gab:'E' },
+    { n:'Q160', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Órgão Especial',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Os membros do Órgão Especial têm mandatos de 2 anos, sendo permitida uma reeleição.', gab:'E' },
+    { n:'Q161', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Órgão Especial',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Órgão Especial processa e julga originariamente o vice-governador, os deputados estaduais e o procurador-geral do Estado.', gab:'E' },
+    { n:'Q162', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Grupo de Câmaras de Direito Público julga mandado de segurança, mandado de injunção e habeas data contra ato de deputado estadual.', gab:'C' },
+    { n:'Q163', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'As câmaras especiais foram extintas, não compondo mais o rol de câmaras do TJSC.', gab:'E' },
+    { n:'Q164', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'As câmaras de direito público são compostas por 4 desembargadores, atuando 3 nos julgamentos colegiados.', gab:'C' },
+    { n:'Q165', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'As câmaras de direito público julgam mandado de segurança contra ato ou omissão de secretário de Estado ou equiparado.', gab:'C' },
+    { n:'Q166', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'As câmaras criminais julgam habeas corpus quando a autoridade coatora ou o paciente for deputado estadual, secretário de Estado, juiz ou membro do MP.', gab:'C' },
+    { n:'Q167', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A Câmara de Recursos Delegados julga conflitos de competência entre câmaras de áreas distintas.', gab:'C' },
+    { n:'Q168', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Conselho da Magistratura exerce função regulamentadora e disciplinar judicial, sem atribuição extrajudicial.', gab:'E' },
+    { n:'Q169', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O presidente de comissão tem voto de desempate, e as deliberações são submetidas ao Pleno ou ao Órgão Especial.', gab:'C' },
+    { n:'Q170', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Câmaras',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A Comissão Permanente de Divisão e Organização Judiciárias é presidida pelo Presidente do TJSC.', gab:'E' },
+    { n:'Q171', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Órgão Especial pode instituir comissões temporárias por proposta da maioria absoluta de seus membros.', gab:'E' },
+    { n:'Q172', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Núcleo de Gerenciamento de Precedentes tem por finalidade uniformizar procedimentos de processos sobrestados por precedentes.', gab:'C' },
+    { n:'Q173', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O habeas corpus, o mandado de segurança e o habeas data são processos urgentes para fins de distribuição.', gab:'C' },
+    { n:'Q174', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Órgão Especial pode editar ato regimental transitório para estabelecer critérios de distribuição em demandas repetitivas.', gab:'C' },
+    { n:'Q175', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A decisão que declarar prejudicado o pedido não firmará prevenção.', gab:'E' },
+    { n:'Q176', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Ao desembargador que vai se aposentar serão distribuídos processos até 10 dias antes da aposentadoria.', gab:'E' },
+    { n:'Q177', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A data de publicação é o primeiro dia seguinte ao da disponibilização no Diário de Justiça Eletrônico.', gab:'E' },
+    { n:'Q178', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O relator pode indeferir liminarmente o mandado de segurança, aplicando-se o mesmo ao habeas data e ao mandado de injunção.', gab:'C' },
+    { n:'Q179', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Nos processos criminais, o revisor é o desembargador seguinte ao relator na ordem decrescente de antiguidade.', gab:'C' },
+    { n:'Q180', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Todos os processos jurisdicionais e administrativos podem, a critério do relator, ser julgados em sessão virtual.', gab:'E' },
+    { n:'Q181', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Distribuição e Sessões',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A objeção à forma virtual por qualquer das partes ou pelo Ministério Público determina a retirada do processo da pauta virtual.', gab:'C' },
+    { n:'Q182', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O Tribunal Pleno e o Órgão Especial reúnem-se com presença mínima da maioria absoluta de seus membros.', gab:'C' },
+    { n:'Q183', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A Seção Criminal reúne-se com presença mínima da maioria de seus membros.', gab:'E' },
+    { n:'Q184', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'No Órgão Especial, a pauta com prioridade máxima é o mandado de segurança.', gab:'E' },
+    { n:'Q185', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O habeas corpus independerá de inclusão em pauta de julgamento.', gab:'C' },
+    { n:'Q186', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Órgão Especial',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Nas sessões do Órgão Especial, as deliberações de natureza judicial precederão às de natureza administrativa.', gab:'E' },
+    { n:'Q187', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Os julgamentos sem prioridade são realizados, preferencialmente, segundo a ordem de antiguidade dos feitos em cada classe.', gab:'C' },
+    { n:'Q188', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Não haverá sustentação oral nos casos de conflito de competência, embargos declaratórios, suspeição, impedimento, incompetência e admissibilidade do IRDR.', gab:'C' },
+    { n:'Q189', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Em matéria criminal, em caso de empate na votação, prevalece a decisão mais favorável ao paciente ou réu.', gab:'C' },
+    { n:'Q190', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A reclamação é cabível para garantir a observância de acórdão proferido em IRDR ou em incidente de assunção de competência.', gab:'C' },
+    { n:'Q191', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Julgamentos e Votação',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O relator pode indeferir liminarmente a reclamação inepta ou incabível, cabendo agravo interno ao órgão competente.', gab:'C' },
+    { n:'Q192', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Na correição parcial em processo penal, o prazo para os interessados ou o Ministério Público é de 10 dias.', gab:'E' },
+    { n:'Q193', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'No controle difuso de constitucionalidade, o relator ouvirá o Ministério Público e as partes no prazo sucessivo de 10 dias.', gab:'C' },
+    { n:'Q194', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O habeas corpus não será conhecido quando se tratar de reiteração ou quando cessar o constrangimento ilegal.', gab:'C' },
+    { n:'Q195', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O desembargador suspeito devolve os autos para nova distribuição por sorteio entre os desembargadores competentes.', gab:'C' },
+    { n:'Q196', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'No IRDR suscitado pelas partes, o relator é o mesmo do processo principal, salvo se não integrar o órgão competente.', gab:'C' },
+    { n:'Q197', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O agravo interno contra decisão do relator que não conhecer de agravo de instrumento será julgado pela câmara do relator.', gab:'C' },
+    { n:'Q198', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'Os embargos infringentes e de nulidade são distribuídos a novo relator, necessariamente diferente do anterior.', gab:'E' },
+    { n:'Q199', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'O exame de cabimento do pedido de intervenção estadual compete ao Órgão Especial.', gab:'C' },
+    { n:'Q200', grupo:'ritjsc', lei:'Regimento Interno do TJSC', sub:'Procedimentos Específicos',
+      inst:'Julgue o item a seguir com base no Regimento Interno do Tribunal de Justiça de Santa Catarina.',
+      stmt:'A direção dos periódicos é exercida pelo Presidente do TJSC, podendo ser delegada a desembargador da Comissão de Jurisprudência.', gab:'E' },
+  ];
+
+  function qbRender(grupo) {
+    const qs = grupo === 'all' ? QUESTOES_BANCO : QUESTOES_BANCO.filter(q => q.grupo === grupo);
+    document.getElementById('qb-list').innerHTML = qs.map(q => `
+      <div class="qb-card">
+        <div class="qb-num">${q.n}</div>
+        <div class="qb-meta"><strong>Analista – TJSC 2024 – ${q.lei} – ${q.sub}</strong></div>
+        <div class="qb-inst">${q.inst}</div>
+        <div class="qb-stmt">${q.stmt}</div>
+        <span class="qb-gab ${q.gab==='C'?'qb-gab-c':'qb-gab-e'}">Gabarito: ${q.gab==='C'?'Certo':'Errado'}</span>
+      </div>
+    `).join('');
+  }
+
+  // Inicializa banco de questões
+  qbRender('all');
+  document.querySelectorAll('.qb-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.qb-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      qbRender(btn.dataset.grupo);
+    });
+  });
 </script>
 </body>
 </html>
