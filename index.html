@@ -356,6 +356,23 @@
     .q-gab.anulada { background: #FEE2E2; color: #991B1B; }
     .questions-section { margin-top: .4rem; }
 
+    /* ── Distribuição de questões de concurso ── */
+    .concurso-dist { padding: .5rem 0 .2rem; }
+    .concurso-group-hdr {
+      font-size: .72rem; font-weight: 600; color: var(--mid);
+      padding: .25rem 0 .1rem; border-bottom: 1px solid var(--border);
+      margin-bottom: .5rem; display: flex; justify-content: space-between;
+    }
+    .concurso-group-hdr:first-child { margin-top: 0; }
+    .concurso-pct { font-weight: 400; opacity: .7; }
+    .concurso-items { display: flex; flex-direction: column; gap: .45rem; margin-bottom: .6rem; }
+    .concurso-item { display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: .5rem; }
+    .concurso-bar-wrap { height: 4px; background: #E5E7EB; border-radius: 2px; overflow: hidden; }
+    .concurso-bar { height: 100%; background: var(--black); border-radius: 2px; }
+    .concurso-label { font-size: .72rem; color: var(--black); }
+    .concurso-n { font-size: .7rem; color: var(--mid); white-space: nowrap; }
+    .concurso-n em { font-style: normal; opacity: .65; }
+
     /* ══════════════════════════
        ANOTAÇÕES
     ══════════════════════════ */
@@ -701,6 +718,42 @@
             <li>Regime jurídico e disciplinar dos servidores</li>
             <li>Lei 5.624/1979 · Regimento Interno TJSC · Lei 6.745/1985 · LC 639/2015</li>
           </ul>
+        </div>
+        <button class="expand-btn" data-target="leg-inst-concurso">▸ Ver distribuição de questões de concurso (260 questões)</button>
+        <div class="topics-detail" id="leg-inst-concurso" style="display:none">
+          <div class="concurso-dist">
+            <div class="concurso-group">
+              <div class="concurso-group-hdr">Legislação Específica dos Tribunais Estaduais <span class="concurso-pct">260 · 100%</span></div>
+              <div class="concurso-group-hdr">Legislação do Tribunal de Justiça do Estado de Santa Catarina (TJSC) <span class="concurso-pct">260 · 100%</span></div>
+              <div class="concurso-items">
+                <div class="concurso-item">
+                  <div class="concurso-bar-wrap"><div class="concurso-bar" style="width:38.85%"></div></div>
+                  <span class="concurso-label">Regimento Interno do TJSC</span>
+                  <span class="concurso-n">101 <em>(38.85%)</em></span>
+                </div>
+                <div class="concurso-item">
+                  <div class="concurso-bar-wrap"><div class="concurso-bar" style="width:26.92%"></div></div>
+                  <span class="concurso-label">Provimento CGJ nº 22/2025 — Código de Normas Foro Judicial</span>
+                  <span class="concurso-n">70 <em>(26.92%)</em></span>
+                </div>
+                <div class="concurso-item">
+                  <div class="concurso-bar-wrap"><div class="concurso-bar" style="width:17.31%"></div></div>
+                  <span class="concurso-label">Lei Estadual nº 5.624/1979 — Código de Divisão e Organização Judiciária</span>
+                  <span class="concurso-n">45 <em>(17.31%)</em></span>
+                </div>
+                <div class="concurso-item">
+                  <div class="concurso-bar-wrap"><div class="concurso-bar" style="width:15.77%"></div></div>
+                  <span class="concurso-label">Lei Complementar nº 339/2006 — Divisão e Organização Judiciárias de SC</span>
+                  <span class="concurso-n">41 <em>(15.77%)</em></span>
+                </div>
+                <div class="concurso-item">
+                  <div class="concurso-bar-wrap"><div class="concurso-bar" style="width:1.15%"></div></div>
+                  <span class="concurso-label">Demais Normas do TJSC</span>
+                  <span class="concurso-n">3 <em>(1.15%)</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pill">
@@ -1379,10 +1432,12 @@
 <script>
   // Toggle expand buttons
   document.querySelectorAll('.expand-btn').forEach(btn => {
-    // Store the original "open" label on each button
     btn.dataset.openLabel = btn.textContent;
     btn.addEventListener('click', () => {
-      const detail = btn.closest('.disc-main').querySelector('.topics-detail');
+      const targetId = btn.getAttribute('data-target');
+      const detail = targetId
+        ? document.getElementById(targetId)
+        : btn.closest('.disc-main').querySelector('.topics-detail');
       if (!detail) return;
       const visible = detail.style.display === 'block';
       detail.style.display = visible ? 'none' : 'block';
