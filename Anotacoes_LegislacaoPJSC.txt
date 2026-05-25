@@ -1,0 +1,344 @@
+════════════════════════════════════════════════════════════════════════
+  ANOTAÇÕES DE ESTUDO
+  Matéria: Legislação Institucional do PJSC
+  Gerado em: 25/05/2026  ·  Total: 24 anotações  ·  3 assuntos
+════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────
+ 1. ESTRUTURA, COMPETÊNCIAS E FUNCIONAMENTO DO PODER JUDICIÁRIO ESTADUAL
+    4 anotaçãoões  |  Ref: #LIPECF
+────────────────────────────────────────────────────────────────────────
+
+  [1]  ID #14  ·  #LIPECF
+
+  Justiça Militar: Processa e julga os militares estaduais nos crimes militares definidos por lei e ações judiciais contra atos disciplinares militares.
+
+  ········································
+
+  [2]  ID #15  ·  #LIPECF
+
+  Em cada sede de município ou distrito deve haver ao menos UM JUIZ DE PAZ titular e 2 SUPLENTE. Para o cargo, exigem-se nacionalidade brasileira, maioridade civil, ensino médio completo, aptidão física e mental, bons antecedentes, residência e domicílio eleitoral na localidade, além de AUSÊNCIA DE VÍNCULO OU ATIVIDADE POLÍTICO-PARTIDÁRIA.
+
+  ········································
+
+  [3]  ID #16  ·  #LIPECF
+
+  COMPOSIÇÃO
+
+  - O Tribunal de Justiça de Santa Catarina é formado por um total de 50 DESEMBARGADORES.
+  - A investidura no Tribunal de Justiça ocorre, em regra, pela promoção de juízes de direito de entrância final, alternadamente por antiguidade e merecimento; como exceção, aplica-se o QUINTO CONSTITUCIONAL, que reserva 1/5 DAS VAGAS a membros do Ministério Público e advogados, desde que possuam ao menos 10 ANOS DE CARREIRA, NOTÓRIO SABER JURÍDICO e REPUTAÇÃO ILIBADA.
+  - O TRIBUNAL PLENO do Tribunal de Justiça de Santa Catarina é composto pela TOTALIDADE DOS DESEMBARGADORES, ou seja, 50 MEMBROS, sendo o órgão máximo deliberativo e jurisdicional do Tribunal.
+  - O ÓRGÃO ESPECIAL é composto por 25 DESEMBARGADORES, observado o critério de composição mista, com METADE DAS VAGAS PROVIDAS POR ANTIGUIDADE E METADE POR ELEIÇÃO PELO TRIBUNAL PLENO, assegurada a participação dos mais antigos.
+  - A existência do ÓRGÃO ESPECIAL decorre de autorização constitucional (art. 93, XI, da Constituição Federal), sendo facultada aos tribunais com mais de 25 julgadores, para o exercício das atribuições administrativas e jurisdicionais delegadas do Tribunal Pleno.
+
+  ········································
+
+  [4]  ID #17  ·  #LIPECF
+
+  _ A PROMOÇÃO POR ANTIGUIDADE consiste na elevação do juiz para instância ou entrância superior com base no CRITÉRIO OBJETIVO DE TEMPO DE SERVIÇO NA CARREIRA, observada a ordem de classificação na lista de antiguidade.
+
+  _ O juiz mais antigo TEM DIREITO SUBJETIVO À PROMOÇÃO, salvo se houver RECUSA MOTIVADA, pelo voto de 2/3 DO ÓRGÃO COMPETENTE, conforme exige a Constituição Federal de 1988.
+
+  _ A recusa deve ser FUNDAMENTADA EM INTERESSE PÚBLICO, não se admitindo discricionariedade arbitrária.
+
+  _ NÃO HAVENDO RECUSA VÁLIDA, a promoção deve recair obrigatoriamente sobre o magistrado mais antigo.
+
+  _ O juiz NÃO SERÁ PROMOVIDO POR ANTIGUIDADE se NÃO TIVER COMPLETADO O INTERSTÍCIO MÍNIMO DE 2 ANOS NA ENTRÂNCIA, conforme exige a Constituição Federal de 1988 (art. 93, II, “b”).
+
+  _ O juiz NÃO PODERÁ SER PROMOVIDO SE ESTIVER EM EXERCÍCIO DE FUNÇÃO INCOMPATÍVEL COM A JUDICATURA, nos termos do art. 95, parágrafo único, da Constituição (ex.: exercício de outro cargo ou função, salvo uma de magistério).
+
+  _ O juiz NÃO PODERÁ SER PROMOVIDO SE ESTIVER AFASTADO IRREGULARMENTE OU SEM OBSERVÂNCIA DOS REQUISITOS LEGAIS (ex.: afastamentos não autorizados ou incompatíveis com a carreira).
+
+  _ O juiz PODE SER RECUSADO, MESMO SENDO O MAIS ANTIGO, se houver decisão fundamentada de 2/3 DO TRIBUNAL, demonstrando INTERESSE PÚBLICO que justifique a não promoção.
+
+  * O juiz NÃO SERÁ PROMOVIDO SE NÃO INTEGRAR A LISTA DE ANTIGUIDADE VÁLIDA, por ausência de requisitos formais ou por impedimento legal específico reconhecido pelo tribunal.
+
+
+────────────────────────────────────────────────────────────────────────
+ 2. ORGANIZAÇÃO JUDICIÁRIA: DIVISÃO, COMPOSIÇÃO, ÓRGÃOS JURISDICIONAIS E ADMINISTRATIVOS
+    18 anotaçãoões  |  Ref: #LIPOJD
+────────────────────────────────────────────────────────────────────────
+
+  [1]  ID #45  ·  #LIPOJD
+
+  - A promoção por ANTIGUIDADE ocorrerá mediante indicação do juiz mais antigo, salvo recusa por voto de 2/3 DOS MEMBROS do ÓRGÃO ESPECIAL. Havendo recusa, a votação será repetida em relação ao juiz imediatamente seguinte na ordem de antiguidade, até que haja indicação válida.
+  - A promoção por merecimento, salvo hipótese de promoção obrigatória, depende de lista tríplice organizada pelo Órgão Especial, observando-se, sempre que possível, a quinta parte da lista de antiguidade. A lista será formada pelos magistrados mais votados, realizando-se tantas votações quantas necessárias, com prioridade aos nomes remanescentes da lista anterior.
+  - Antes da indicação por antiguidade ou da formação da lista tríplice, o Tribunal ouvirá o Corregedor-Geral, no prazo de três dias, sobre a capacidade funcional dos magistrados, o cumprimento de seus deveres, eventuais punições disciplinares e outras informações relevantes sobre sua atuação.
+  - É constitucional lei estadual que estabelece a precedência da remoção sobre a promoção por antiguidade na carreira da magistratura. Após a EC 45/2004, a remoção passou a ter prioridade sobre qualquer modalidade de promoção, por antiguidade ou merecimento, para preenchimento de vagas na mesma entrância. O art. 93, VIII-A, da CF incorporou à remoção os critérios constitucionais aplicáveis à promoção, evitando a preterição de magistrados mais antigos da mesma entrância.  _STF - Plenário, ADI 6.757/RR – 20/02/2025._
+
+  ORDEM ATUAL:
+  1º - Remoção de juizes na mesma entrância;
+  2º - Promoção por antiguidade / merecimento;
+
+  ········································
+
+  [2]  ID #46  ·  #LIPOJD
+
+  PROMOÇÃO OBRIGATÓRIA: é obrigatória a promoção do Magistrado que figurar por 3 (três) vezes consecutivas ou 5 (cinco) vezes alternadas em lista de merecimento. Quando não ocorre essa situação de promoção obrigatória, a promoção baseada no critério de merecimento dependerá da elaboração de uma lista tríplice organizada pelo Tribunal
+
+  ········································
+
+  [3]  ID #47  ·  #LIPOJD
+
+  No Poder Judiciário de Santa Catarina, o quinto constitucional reserva um quinto das vagas de Desembargador do TJSC a membros do Ministério Público e advogados. Os integrantes do MP devem possuir mais de 10 anos de carreira; os advogados precisam ter notório saber jurídico, reputação ilibada e mais de 10 anos de efetiva atividade profissional.
+
+  ········································
+
+  [4]  ID #48  ·  #LIPOJD
+
+  DESEMBARGADOR AO DEIXAR O CARGO DE PRESIDENTE DO TRIBUNAL
+
+  - Conforme o Regimento Interno do TJSC, atualizado pela Emenda Regimental TJ n. 23/2023, o Desembargador eleito para cargo de direção, como Presidente, permanece vinculado à VAGA ANTERIORMENTE OCUPADA NO ÓRGÃO FRACIONÁRIO DE ORIGEM, mantendo sua posição na respectiva Câmara.
+  - Embora o Regimento Interno do TJSC, após a Emenda Regimental TJ n. 23/2023, determine que o Desembargador eleito para cargo de direção mantenha a vaga originalmente ocupada na Câmara, o Código de Divisão e Organização Judiciárias de Santa Catarina prevê regra diversa e mais antiga: ao deixar a PRESIDÊNCIA OU A CORREGEDORIA, o Desembargador passaria a integrar a CÂMARA OCUPADA POR SEU SUCESSOR. Há, portanto, aparente conflito entre a norma regimental atual e a disposição legal anterior do CDOJSC.
+
+  ········································
+
+  [5]  ID #49  ·  #LIPOJD
+
+  Os JUÍZES SUBSTITUTOS adquirem VITALICIEDADE após 2 ANOS de efetivo exercício, mediante avaliação funcional e exames de adaptação psicológica. A CORREGEDORIA-GERAL DA JUSTIÇA acompanha e avalia o magistrado, encaminhando os autos ao CONSELHO DA MAGISTRATURA, que examina idoneidade moral, conduta social, capacidade intelectual e desempenho jurisdicional. A decisão final compete ao ÓRGÃO ESPECIAL DO TJ, sendo exigido voto de dois terços de seus membros efetivos para negar a confirmação na carreira.
+
+  ········································
+
+  [6]  ID #50  ·  #LIPOJD
+
+  JUIZ DE PAZ
+  - O art. 22 prevê que haverá, em cada distrito ou subdistrito, um Juiz de Paz e dois suplentes. Contudo, a regra mínima aplicável estabelece que, em cada sede de município ou distrito, deve existir ao menos um Juiz de Paz e um suplente.
+  - O Juiz de Paz e a Justiça de Paz integram oficialmente a estrutura do Poder Judiciário estadual. Os juízes de paz são escolhidos pelos cidadãos, por eleição DIRETA, UNIVERSAL E SECRETA, para mandato de 4 ANOS, sendo vedada a coincidência do pleito com eleições para cargos políticos. A posse ocorre perante o JUIZ DIRETOR DO FORO da respectiva comarca.
+  - Para concorrer ao cargo de Juiz de Paz, o candidato deve ser BRASILEIRO, MAIOR DE 21 ANOS, possuir ENSINO MÉDIO completo, estar no pleno exercício dos direitos políticos e quite com as obrigações militares, além de apresentar aptidão física e mental, bons antecedentes, DOMICÍLIO ELEITORAL E RESIDÊNCIA NO DISTRITO de atuação. Também é VEDADA A FILIAÇÃO PARTIDÁRIA ou o EXERCÍCIO DE ATIVIDADE POLÍTICO-PARTIDÁRIA.
+  - O mandato do Juiz de Paz e de seus suplentes é de 4 ANOS, sendo admitida UMA RECONDUÇÃO ao cargo. Encerrado o quatriênio, permanecem no exercício das funções até a posse dos sucessores; inexistindo nova nomeação ou eleição para o período seguinte, considera-se automática a recondução dos titulares e suplentes.
+
+  ········································
+
+  [7]  ID #51  ·  #LIPOJD
+
+  Sobre o Juiz de Paz, a legislação do Poder Judiciário de Santa Catarina estabelece as seguintes regras baseadas nas fontes fornecidas:
+
+  1. NOMEAÇÃO E ELEIÇÃO
+  A regra geral atual é que a Justiça de Paz seja composta por cidadãos ELEITOS pelo voto direto, universal e secreto, para um mandato de quatro anos, sendo a função remunerada na forma da lei. A eleição não pode ser realizada simultaneamente com os pleitos para mandatos políticos.
+
+  Contudo, existe a figura da NOMEAÇÃO para casos específicos de vacância. Nas hipóteses de falta, ausência, impedimento ou vacância do cargo do titular e do seu respectivo suplente, o juiz de Direito competente (ou juiz corregedor permanente) efetuará a nomeação de um JUIZ DE PAZ _AD HOC_, que responderá pela função enquanto não for realizada uma nova eleição.
+
+  2. REQUISITOS
+  Para ingressar no cargo, seja por meio do processo eleitoral ou de nomeação _ad hoc_, o candidato deve preencher os seguintes requisitos:
+  _ Nacionalidade brasileira e maioridade civil;
+  _ Pleno exercício dos direitos políticos, com alistamento eleitoral e quitação com o serviço militar;
+  _ Escolaridade equivalente ao Ensino Médio;
+  _ Aptidão física e mental e comprovação de bons antecedentes;
+  _ Domicílio eleitoral no município onde houver a vaga e residência fixa na sede do distrito para o qual concorrer;
+  _ Não possuir filiação a partido político nem exercer atividade político-partidária.
+
+  No caso específico de nomeação para JUIZ DE PAZ _AD HOC_, a legislação impõe vedações extras: a função não pode ser exercida por servidor público na ativa, advogado, nem por delegatário ou preposto de serventia extrajudicial.
+
+  3. HIPÓTESES DE PERDA DO CARGO
+  O juiz de paz e seus suplentes perdem o cargo nas seguintes hipóteses legais:
+  _ Exoneração a pedido;
+  _ Mudança de domicílio;
+  _ Sentença criminal condenatória transitada em julgado;
+  _ Aceitação de outra função pública;
+  * Incapacidade física ou mental, que deve ser devidamente comprovada mediante inspeção médica (caso o juiz se recuse injustificadamente a passar pela inspeção, sua incapacidade será considerada comprovada para o fim de perda do cargo).
+
+  O processo e o julgamento dos casos que envolvem a perda de mandato do juiz de paz são de competência do Juiz Diretor do Foro local, cabendo recurso de suas decisões ao Tribunal Pleno do Tribunal de Justiça de Santa Catarina.
+
+  ········································
+
+  [8]  ID #52  ·  #LIPOJD
+
+  Nos termos específicos da Lei 5.624 (Código de Divisão e Organização Judiciárias do Estado de Santa Catarina), os serventuários compõem uma categoria específica dos auxiliares da Justiça.
+
+  São classificados legalmente como serventuários da justiça:
+  _   OS ESCRIVÃES;
+  _   OS TABELIÃES;
+  *   OS OFICIAIS DE REGISTRO PÚBLICO.
+
+  A lei diferencia essa categoria dos demais "auxiliares da Justiça" (como oficiais de justiça, contadores, distribuidores, tradutores, etc.), que não recebem expressamente a classificação de serventuários.
+
+  ········································
+
+  [9]  ID #53  ·  #LIPOJD
+
+  Nos termos da Lei 5.624 (Código de Divisão e Organização Judiciárias de Santa Catarina), os tradutores públicos e intérpretes são classificados como auxiliares da Justiça, ao lado de contadores, distribuidores e oficiais de justiça. Assim, não integram a subcategoria específica dos serventuários, prevista para funções vinculadas diretamente aos serviços cartorários e judiciais.
+
+  O Código de Divisão e Organização Judiciárias de Santa Catarina estabelece um diferencial relevante para tradutores públicos e intérpretes: diferentemente dos demais auxiliares da Justiça, eles não se submetem à regra de incompatibilidade prevista no art. 263, que veda o exercício de outras funções. Essa exceção lhes assegura maior flexibilidade profissional, permitindo conciliar suas atividades particulares com a atuação junto ao Poder Judiciário.
+
+  ········································
+
+  [10]  ID #54  ·  #LIPOJD
+
+  A Direção do Foro é o órgão encarregado de coordenar a administração geral das comarcas de Santa Catarina, abrangendo os serviços judiciários auxiliares e a polícia interna dos fóruns. Compete-lhe assegurar o funcionamento administrativo e disciplinar das unidades judiciais, garantindo a regularidade dos serviços forenses.
+
+  A designação da Direção do Foro observa critérios ligados à organização da comarca. Nas comarcas com mais de um juiz, a função será exercida, preferencialmente, pelo magistrado mais antigo que aceite a indicação. Já nas comarcas do interior com apenas um juiz, o cargo é assumido automaticamente pelo juiz de direito titular. Havendo elevação de entrância da comarca, a direção caberá ao juiz de entrância mais elevada.
+
+  O mandato do Diretor do Foro é de dois anos, sendo assegurada ao magistrado, pelo exercício da função, gratificação de representação correspondente a 6% do subsídio. Em casos de falta ou impedimento, a substituição ocorre pelo juiz de direito de outra vara da mesma comarca, observada a ordem de antiguidade; nas comarcas de vara única, a substituição cabe ao juiz substituto.
+
+  No exercício de suas atribuições administrativas e operacionais, compete ao Juiz Diretor do Foro superintender a administração geral e a polícia interna do fórum, assegurando o regular funcionamento dos serviços. Também lhe cabe elaborar o Regimento Interno do fórum e requisitar ao Tribunal de Justiça o material de expediente necessário às atividades forenses.
+
+  Como administrador local, compete ao Juiz Diretor do Foro conceder licenças de até 90 dias para trato de interesses particulares aos servidores subordinados, além de definir o período de férias desses servidores e dos Juízes de Paz. Também lhe cabe designar oficiais de justiça para permanecerem à disposição durante o expediente, visando ao cumprimento de medidas urgentes, bem como supervisionar trimestralmente a atuação desses oficiais.
+
+  ········································
+
+  [11]  ID #55  ·  #LIPOJD
+
+  No âmbito disciplinar, o Diretor do Foro exerce poder sobre os SERVIDORES E AUXILIARES DA JUSTIÇA diretamente subordinados, podendo aplicar as penalidades de REPREENSÃO E SUSPENSÃO, com recurso ao PRESIDENTE do Tribunal de Justiça. Também compete a ele dar posse aos JUÍZES DE PAZ e processar e julgar os casos relativos à perda de seus mandatos, assegurado recurso ao TRIBUNAL PLENO.
+
+  ········································
+
+  [12]  ID #56  ·  #LIPOJD
+
+  No âmbito extrajudicial, o Diretor do Foro atua como juiz corregedor permanente, exercendo funções de fiscalização sobre os cartórios da comarca. Entre suas atribuições estão realizar correições ordinárias anuais nas serventias notariais e de registro, receber e processar reclamações contra delegatários interinos e interventores, designar escreventes substitutos e juízes de paz ad hoc em casos de ausência ou impedimento, além de promover correições especiais de transmissão de acervo quando ocorre mudança na titularidade do cartório.
+
+  ········································
+
+  [13]  ID #57  ·  #LIPOJD
+
+  1. JUIZ SUBSTITUTO VITALÍCIO
+  _JURISDIÇÃO E SUBSTITUIÇÃO_: Exerce sua jurisdição na circunscrição judiciária para a qual foi nomeado
+  . Compete a ele substituir os juízes de direito titulares em suas faltas, impedimentos, suspeições, afastamentos, licenças, férias e nas hipóteses de vacância do cargo
+  .
+  _COOPERAÇÃO:_ Quando não estiver em efetivo exercício de substituição, tem o dever de prestar cooperação aos juízes de direito das varas ou comarcas integrantes da sua circunscrição judiciária, sempre atuando com competência plena
+  .
+  _ATUAÇÃO FORA DA CIRCUNSCRIÇÃO: _A regra é que a designação do juiz vitalício se restrinja à circunscrição em que estiver lotado
+  . Contudo, por imperiosa necessidade de serviço e mediante prévia consulta ao interessado, ele poderá ser designado para cooperação ou substituição em juízos de outras circunscrições
+
+  2. JUIZ SUBSTITUTO NÃO VITALÍCIO
+  _FUNÇÃO ITINERANTE: _O juiz substituto em estágio probatório (não vitalício) possui função itinerante, podendo ter exercício em qualquer comarca ou vara do Estado de Santa Catarina
+  . Essa movimentação ocorre mediante designação do Presidente do Tribunal de Justiça, após ouvido o Corregedor-Geral da Justiça
+  .
+  Mesmo sem a vitaliciedade, ao ser designado para atuar na unidade, ele possui competência plena para praticar todos os atos jurisdicionais reservados por lei ao juiz vitalício
+  . A regra de prestar _COOPERAÇÃO_ quando não está substituindo também se aplica a ele
+
+  3. COMPETÊNCIA EM CASOS DE URGÊNCIA
+  Na ausência eventual do Juiz de Direito titular, caberá ao Juiz Substituto (vitalício ou não), observada a ordem de antiguidade na comarca, apreciar os pedidos cíveis e criminais de natureza urgente
+  .
+  Sempre que o Juiz Substituto atuar nesses casos excepcionais, o fato deverá ser obrigatoriamente comunicado ao Corregedor-Geral de Justiça no prazo de 48 (quarenta e oito) horas
+  .
+
+  ········································
+
+  [14]  ID #58  ·  #LIPOJD
+
+  O funcionamento e a competência do Tribunal do Júri no âmbito do Poder Judiciário de Santa Catarina seguem regras estruturais da legislação estadual, aliadas às normas do Código de Processo Penal.
+
+  Abaixo, detalho as regras aplicáveis com base nos normativos do Estado:
+
+  1. COMPETÊNCIA
+  _   MATÉRIA: O Tribunal do Júri tem competência exclusiva para o julgamento dos crimes dolosos contra a vida, sejam eles consumados ou tentados, conforme definidos no Código Penal,.
+  _   DISTRIBUIÇÃO NAS COMARCAS: A legislação determina que HAVERÁ PELO MENOS UM TRIBUNAL DO JÚRI EM CADA COMARCA,. Nas comarcas onde existe mais de uma Vara Criminal, o Tribunal de Justiça pode atribuir a competência privativa do Júri a uma delas (historicamente e comumente à 1ª Vara Criminal), cabendo a este juízo a presidência do Tribunal do Júri e o processamento dos respectivos feitos,,. O Tribunal de Justiça também pode estender essa competência para comarcas circunvizinhas.
+
+  2. FUNCIONAMENTO E SESSÕES
+  _   SESSÕES ORDINÁRIAS: As sessões ordinárias do Tribunal do Júri SÃO MENSAIS, instalando-se mediante a convocação do Juiz-Presidente,.
+  _   SESSÕES EXTRAORDINÁRIAS: O Conselho da Magistratura e as Câmaras Criminais do TJSC têm a prerrogativa de determinar a realização de reuniões extraordinárias do Tribunal do Júri, sempre que o interesse da Justiça assim o exigir,.
+  _   DISPENSA: A sessão ordinária ou a convocação dos jurados será dispensada nas ocasiões em que não houver processos devidamente preparados (prontos) para julgamento na pauta,.
+
+  3. CONVOCAÇÃO E SORTEIO DE JURADOS
+  _   PRAZOS: A convocação para o Júri é feita por meio de edital, que deve ser publicado logo após o sorteio dos jurados que servirão na sessão. Este sorteio precisa ser realizado com uma antecedência de 10 A 15 DIAS antes da data designada para a reunião,.
+  _   PROGRAMA JURADO VOLUNTÁRIO: Para facilitar a composição da lista anual de jurados das comarcas, a Corregedoria-Geral da Justiça mantém o "Programa Jurado Voluntário". Esse programa recruta voluntários interessados e com real preocupação com a justiça, encaminhando a listagem para as comarcas até o dia 20 de setembro de cada ano.
+
+  4. SOLENIDADES, SEGURANÇA E ATOS AUXILIARES
+  _   VESTIMENTAS: Para resguardar a imagem da instituição e o respeito à solenidade, o juiz deve trajar vestes compatíveis com a dignidade da função (toga ou terno e gravata para homens, e trajes correspondentes para mulheres) durante as sessões do Tribunal do Júri.
+  _   ABERTURA E ENCERRAMENTO: É atribuição dos porteiros dos auditórios realizar o pregão de abertura e de encerramento das sessões do Júri, bem como apregoar as pessoas chamadas à sessão.
+  _   CASOS DE ORGANIZAÇÃO CRIMINOSA: Por questões de segurança, sempre que for designada uma sessão do Tribunal do Júri relacionada a processos da Lei de Organização Criminosa, o gabinete do juiz deve obrigatoriamente informar o fato ao Núcleo de Inteligência e Segurança Institucional do TJSC por meio de formulário específico.
+
+  ········································
+
+  [15]  ID #59  ·  #LIPOJD
+
+  A COMPETÊNCIA e as POSSIBILIDADES das autoridades policiais (Polícia Judiciária) são estruturadas da seguinte maneira:
+
+  1. NATUREZA E COMPETÊNCIA GERAL
+  _ A Polícia Judiciária atua como um ÓRGÃO DE COLABORAÇÃO COM O PODER JUDICIÁRIO.
+  _ A COMPETÊNCIA principal é a APURAÇÃO DAS INFRAÇÕES PENAIS, operando nos termos da legislação própria e do Código de Processo Penal.
+  _ CONDIÇÃO: Essa COMPETÊNCIA NÃO EXCLUIRÁ A DE AUTORIDADE ADMINISTRATIVA a quem, por lei, seja atribuída a mesma função.
+
+  2. POSSIBILIDADES DE ATUAÇÃO TERRITORIAL (DESLOCAMENTO)
+  _ REQUISITO: A regra se aplica a COMARCAS COMPOSTAS OU INTEGRADAS POR MAIS DE UM MUNICÍPIO.
+  _ CONDIÇÃO (INQUÉRITOS PRESIDIDOS): A autoridade policial com exercício em um dos municípios possui a COMPETÊNCIA para ORDENAR DILIGÊNCIAS NOS DEMAIS MUNICÍPIOS em relação aos inquéritos que estiver presidindo.
+  _ CONSEQUÊNCIA: Essa tramitação ocorrerá INDEPENDENTEMENTE DE PRECATÓRIAS OU REQUISIÇÕES.
+  _ CONDIÇÃO (FATOS EM FLAGRANTE): A autoridade tem a POSSIBILIDADE DE TOMAR PROVIDÊNCIAS sobre fato que caracterize infração penal ocorrido em sua presença FORA DE SUA CIRCUNSCRIÇÃO TERRITORIAL OU JURISDIÇÃO.
+  _ PRAZO/LIMITE: Essa atuação excepcional é válida apenas ATÉ QUE COMPAREÇA A AUTORIDADE COMPETENTE.
+
+  3. CONDIÇÕES EM INVESTIGAÇÕES ENVOLVENDO MAGISTRADOS
+  _ CONDIÇÃO: Se, no curso de uma investigação, for verificado qualquer INDÍCIO DA PRÁTICA DE CRIME POR PARTE DE MAGISTRADO.
+  _ CONSEQUÊNCIA: A autoridade policial (seja civil ou militar) não poderá continuar apurando o caso e deverá REMETER OS RESPECTIVOS AUTOS AO TRIBUNAL DE JUSTIÇA, a fim de que este delibere sobre o prosseguimento da investigação.
+
+  4. PRAZOS E COMUNICAÇÕES DE TRANSFERÊNCIA DE PRESOS
+  * CONDIÇÃO E PRAZO: A autoridade policial será comunicada da transferência de um preso provisório somente se a autorização judicial para tal transferência ocorrer ANTES DA CONCLUSÃO DO INQUÉRITO POLICIAL.
+
+  ········································
+
+  [16]  ID #60  ·  #LIPOJD
+
+  - Os escrivães de paz possuem competência para atuar no REGISTRO CIVIL das pessoas NATURAIS, como (1) TABELIÃO e (2) ESCRIVÃO DE POLÍCIA, sob a condição de _NÃO TIRAR PROTESTOS CAMBIÁRIOS_ e de não haver servidor policial próprio no local, sendo requisito obrigatório possuir os livros oficiais padronizados.  (Fontes (xxxx) - Eles devem observar o PRAZO DE 20 DIAS para enviar traslados de constituição de ônus ou transmissão de propriedade ao registro de imóveis e o PRAZO DE 15 DIAS para exercer o direito de opção, com a consequência de poderem escolher entre permanecer no ofício ou assumir um novo caso o distrito seja elevado a comarca.  - O exercício da atividade dá-se sob a condição de terem direito a apenas UM escrevente juramentado — que assumirá como consequência a substituição em caso de FALTAS OU IMPEDIMENTOS —, somada à condição de poderem ACUMULAR FUNÇÕES de (1) registro sem incompatibilidade e de formarem uma (2) classe funcional distinta para fins de remoção e permuta.
+
+  ········································
+
+  [17]  ID #61  ·  #LIPOJD
+
+  O tabelião (ou notário) é um profissional do direito, dotado de fé pública, a quem é delegado o exercício da atividade notarial.
+
+  Abaixo, detalho sua atuação, limites e regime jurídico:
+
+  COMPETÊNCIA:
+  _ COMPETE ao tabelião FORMALIZAR JURIDICAMENTE A VONTADE DAS PARTES e AUTENTICAR FATOS.
+  _ Ele deve INTERVIR NOS ATOS E NEGÓCIOS JURÍDICOS, AUTORIZANDO A REDAÇÃO OU REDIGINDO OS INSTRUMENTOS, CONSERVANDO OS ORIGINAIS e EXPEDINDO CÓPIAS FIDEDIGNAS.
+  _ É COMPETÊNCIA EXCLUSIVA do tabelião de notas: LAVRAR ESCRITURAS, PROCURAÇÕES E TESTAMENTOS PÚBLICOS; APROVAR TESTAMENTOS CERRADOS; LAVRAR ATAS NOTARIAIS; RECONHECER FIRMAS; e AUTENTICAR CÓPIAS.
+
+  ALCANCE TERRITORIAL:
+  _ A escolha do tabelião pelas partes é livre, sendo uma CONDIÇÃO em que é irrelevante o domicílio dos interessados ou o lugar de situação dos bens negociados.
+  _ Há a CONDIÇÃO RESTRITIVA de que o tabelião NÃO PODERÁ PRATICAR ATOS DE SEU OFÍCIO FORA DO MUNICÍPIO para o qual recebeu a delegação, sendo expressamente VEDADA A COLETA DE ASSINATURAS FORA DE SUA CIRCUNSCRIÇÃO.
+  _ Na impossibilidade de prestação pelo tabelião originariamente competente, outro notário do município ou comarca poderá atuar, mediante o REQUISITO de consignar o motivo no ato e comunicar ao juiz no PRAZO DE 5 DIAS.
+
+  REQUISITOS E CONDIÇÕES DE IMPEDIMENTO:
+  _ O REQUISITO primordial para o exercício da delegação é a aprovação em CONCURSO PÚBLICO DE PROVAS E TÍTULOS, exigindo-se também ser BACHAREL EM DIREITO, ter NACIONALIDADE BRASILEIRA, CAPACIDADE CIVIL e QUITAÇÃO ELEITORAL E MILITAR.
+  _ Existe a CONDIÇÃO DE IMPEDIMENTO, sendo proibido ao tabelião praticar atos de seu próprio interesse, de seu CÔNJUGE OU DE PARENTES ATÉ O TERCEIRO GRAU.
+  _ A função atrai a CONDIÇÃO DE INCOMPATIBILIDADE com o exercício da ADVOCACIA, INTERMEDIAÇÃO DE SERVIÇOS OU QUALQUER OUTRO CARGO OU FUNÇÃO PÚBLICA.
+
+  CONSEQUÊNCIAS E PENALIDADES:
+  _ Como CONSEQUÊNCIA de atos lesivos, o tabelião RESPONDERÁ CIVIL E CRIMINALMENTE PELOS DANOS causados a terceiros na prática de atos da serventia, garantido o direito de regresso contra seus prepostos.
+  * As infrações disciplinares (como inobservância de normas, quebra de sigilo ou cobrança indevida) acarretam as CONSEQUÊNCIAS de REPREENSÃO, MULTA, SUSPENSÃO POR 90 DIAS (PRORROGÁVEL POR MAIS 30 DIAS) OU A PERDA DA DELEGAÇÃO.
+
+  ········································
+
+  [18]  ID #62  ·  #LIPOJD
+
+  • Os DEPOSITÁRIOS PÚBLICOS são AUXILIARES DA JUSTIÇA. Compete ao profissional a GUARDA, CONSERVAÇÃO E ADMINISTRAÇÃO DOS BENS confiados judicialmente; pode requerer PROVIDÊNCIAS CAUTELARES para bens DETERIORÁVEIS, sugerir LOCAÇÃO DE IMÓVEIS DESOCUPADOS e cobrar judicialmente aluguéis.
+
+  • O depositário pode REPARAÇÕES NOS IMÓVEIS, TRIBUTOS e seguro contra fogo, JUIZ. Deve diligenciar despejo de prédios, cobrança judicial de aluguéis e ENTRADAS E SAÍDAS DE DEPÓSITOS, submetendo-as JUIZ E DO MINISTÉRIO PÚBLICO.
+
+  • ANTES de assumir a função, o depositário deve prestar GARANTIA REAL, FIDEJUSSÓRIA OU SEGURO DE FIDELIDADE, em valor arbitrado pelo CORREGEDOR-GERAL DA JUSTIÇA. Também deve possuir LIVROS ESPECIAIS aprovados pela CORREGEDORIA-GERAL, rubricados e encerrados pelo DIRETOR DO FORO.
+
+  • É proibido USAR OU EMPRESTAR A COISA DEPOSITADA sob qualquer pretexto. O bem somente pode ser entregue MEDIANTE MANDADO EXPRESSO DO JUIZ; a garantia será levantada APÓS JULGAMENTO E APROVAÇÃO DAS CONTAS.
+
+  • O depositário pode receber RESSARCIMENTO POR DESPESAS JUSTIFICADAS e REMUNERAÇÃO do Regimento de Custas. Onde não houver depositário público, AVALIADORES JUDICIAIS poderão exercer a função, quando designados pelo JUIZ.
+
+  • O depositário deve remeter ao juiz o balanço mensal ATÉ O DIA 10 DE CADA MÊS. Valores recebidos em dinheiro devem ser depositados EM ESTABELECIMENTO BANCÁRIO INDICADO PELO MAGISTRADO, NO PRAZO DE 24 HORAS.
+
+  • O descumprimento do dever de depósito de valores gera SUSPENSÃO POR 90 (NOVENTA) DIAS. NUMERÁRIO EM CAIXA inexistente permite pagamento de exigências fiscais ao final; honorários advocatícios serão lançados na conta dos autos CASO NÃO SEJAM SATISFEITOS na ação de cobrança.
+
+
+────────────────────────────────────────────────────────────────────────
+ 3. LEI 5.624/1979 | REGIMENTO INTERNO TJSC | LEI 6.745/1985 | LC 639/2015
+    2 anotaçãoões  |  Ref: #LIPLRI
+────────────────────────────────────────────────────────────────────────
+
+  [1]  ID #22  ·  #LIPLRI
+
+  O território do Estado, para fins de administração da Justiça, divide-se em distritos, subdistritos, municípios, comarcas e comarcas integradas; contudo, constitui uma única circunscrição quanto aos atos de competência do Tribunal de Justiça. A instalação dos distritos e subdistritos ser. feita pelo juiz de direito da comarca.
+
+  A criação, alteração, extinção ou classificação das comarcas baseia-se na extensão territorial, número de habitantes, número de eleitores, movimento forense e receita tributária. Considera-se receita tributária o total de tributos recebidos pelos municípios que compõem a comarca, incluindo transferências e cotas de participação. Os dados são apurados no ano anterior ao pedido; tais índices podem ser reduzidos até a metade, a critério do Tribunal, para municípios com meios de comunicação precários.
+
+  Para a instalação da comarca, exige-se que a sede possua fórum mobiliado e cadeia com condições de higiene e segurança; o poder público deve assegurar imóveis para residência do juiz e do promotor, mediante taxa de ocupação dos usuários.
+
+  A instalação da comarca depende de inspeção do Corregedor-Geral, que apresentará relatório ao Tribunal; aprovada, o Presidente designa dia e hora da solenidade, podendo presidí-la ou indicar outro magistrado; da ata, extraem-se cópias a serem enviadas ao Tribunal de Justiça e ao Governador do Estado.
+
+  O Tribunal de Justiça pode reunir duas ou mais comarcas em “comarca integrada” para comunicação de atos, diligências e produção de provas; exige-se proximidade, fácil acesso e intensa circulação entre elas; nesses territórios, citações, intimações, notificações e demais atos podem ser realizados livremente pelo oficial de justiça da comarca interessada.
+
+  ········································
+
+  [2]  ID #23  ·  #LIPLRI
+
+  VARA DISTRITAL é unidade judiciária com competência territorial específica, vinculada administrativamente à comarca; DISTRITO é subdivisão da comarca; a instalação de distritos e subdistritos compete ao JUIZ DE DIREITO; em cada um haverá um JUIZ DE PAZ E DOIS SUPLENTES.
+
+
+════════════════════════════════════════════════════════════════════════
+  FIM DO DOCUMENTO
+════════════════════════════════════════════════════════════════════════
